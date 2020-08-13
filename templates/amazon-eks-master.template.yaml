@@ -1,6 +1,8 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: Deploys an EKS cluster in a new VPC (qs-1p7nknoht)
 Metadata:
+  QuickStartDocumentation:
+    EntrypointName: "Launch into a new VPC"
   LintSpellExclude:
     - Kubernetes
     - ARNs

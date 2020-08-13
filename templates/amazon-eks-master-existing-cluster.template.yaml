@@ -1,6 +1,8 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "Prepare an existing EKS cluster (qs-1p817r5f9)"
 Metadata:
+  QuickStartDocumentation:
+    EntrypointName: "Prepare an existing EKS cluster"
   LintSpellExclude: ['http://10.101.0.100:3128/', Security Group, Subnet IDs, 'No', vpc]
   AWS::CloudFormation::Interface:
     ParameterGroups:
