@@ -1,1 +1,12 @@
-// placeholder
+
+=== Prepare an existing EKS cluster
+include::amazon-eks-master-existing-cluster.template.adoc[]
+
+=== Configure advanced options
+include::amazon-eks-advanced-configuration.template.adoc[]
+
+=== Launch into an existing VPC
+include::amazon-eks-master-existing-vpc.template.adoc[]
+
+=== Launch into a new VPC
+include::amazon-eks-master.template.adoc[]

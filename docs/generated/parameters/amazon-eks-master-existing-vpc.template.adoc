@@ -1,0 +1,77 @@
+
+.Network configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|VPC ID
+(`VPCID`)|`**__Requires input__**`|The ID of your existing VPC (e.g., vpc-0343606e)|Private subnet 1 ID
+(`PrivateSubnet1ID`)|`**__Requires input__**`|The ID of the private subnet in Availability Zone 1 in your existing VPC (e.g., subnet-fe9a8b32)|Private subnet 2 ID
+(`PrivateSubnet2ID`)|`**__Requires input__**`|The ID of the private subnet in Availability Zone 2 in your existing VPC (e.g., subnet-be8b01ea)|Private subnet 3 ID
+(`PrivateSubnet3ID`)|`**__Requires input__**`|The ID of the private subnet in Availability Zone 3 in your existing VPC (e.g., subnet-abd39039)|Public subnet 1 ID
+(`PublicSubnet1ID`)|`**__Requires input__**`|The ID of the public subnet in Availability Zone 1 in your existing VPC (e.g., subnet-a0246dcd)|Public subnet 2 ID
+(`PublicSubnet2ID`)|`**__Requires input__**`|The ID of the public subnet in Availability Zone 2 in your existing VPC (e.g., subnet-b1236eea)|Public subnet 3 ID
+(`PublicSubnet3ID`)|`**__Requires input__**`|The ID of the public subnet in Availability Zone 3 in your existing VPC (e.g., subnet-c3456aba)|Allowed external access CIDR
+(`RemoteAccessCIDR`)|`**__Requires input__**`|The CIDR IP range that is permitted to access the instances. We recommend that you set this value to a trusted IP range.|HTTP proxy
+(`HttpProxy`)|`**__Requires input__**`|HTTP(S) proxy configuration, if provided all worker nodes and pod egress traffic will go use this proxy. Example: http://10.101.0.100:3128/
+|===
+.Amazon EC2 configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|SSH key name
+(`KeyPairName`)|`**__Requires input__**`|The name of an existing public/private key pair, which allows you to securely connect to your instance after it launches|Provision bastion host
+(`ProvisionBastionHost`)|`Enabled`|Skip creating a bastion host by setting this is set to Disabled.
+|===
+.Amazon EKS configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|EKS cluster name
+(`EKSClusterName`)|`**__Requires input__**`|[OPTIONAL] Name for the EKS cluster, if left blank one will be auto-generated. Must be unique within the AWS Region.|Nodes instance type
+(`NodeInstanceType`)|`t3.medium`|The type of EC2 instance for the node instances.|Number of nodes
+(`NumberOfNodes`)|`3`|The number of Amazon EKS node instances. The default is one for each of the three Availability Zones.|EKS public access endpoint
+(`EKSPublicAccessEndpoint`)|`Disabled`|Configure access to the Kubernetes API server endpoint from outside of your VPC.|Managed node group
+(`ManagedNodeGroup`)|`no`|Choose if you want to use a managed node group. If you select "yes", you must select Kubernetes version 1.14 or higher.|Additional EKS admin ARN (IAM user)
+(`AdditionalEKSAdminUserArn`)|`**__Requires input__**`|[OPTIONAL] IAM user Amazon Resource Name (ARN) to be granted admin access to the EKS cluster|Additional EKS admin ARN (IAM role)
+(`AdditionalEKSAdminRoleArn`)|`**__Requires input__**`|[OPTIONAL] IAM role Amazon Resource Name (ARN) to be granted admin access to the EKS cluster
+|===
+.Snyk monitor [APN security partner]
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Snyk integration ID
+(`SnykIntegrationId`)|`**__Requires input__**`|[Optional] Snyk Kubernetes integration ID. If Snyk is enabled, this must be provided. For more information see https://support.snyk.io/hc/en-us/articles/360003916158-Install-the-Snyk-controller-with-Helm .|Snyk integration
+(`SnykIntegration`)|`Disabled`|Snyk security monitor integration. For more information see https://github.com/aws-quickstart/quickstart-eks-snyk/ .
+|===
+.New Relic infrastructure [APN monitoring partner]
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|New Relic integration
+(`NewRelicIntegration`)|`Disabled`|New Relic infrastructure monitoring integration. For more information see https://github.com/aws-quickstart/quickstart-eks-newrelic-infrastructure/ .|New Relic license key
+(`NewRelicLicenseKey`)|`**__Requires input__**`|[Optional] New Relic infrastructure license key. If New Relic is enabled, this must be provided. For more information see https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key .
+|===
+.Optional Amazon EKS Windows configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Allow for creation of Windows node group
+(`WindowsSupport`)|`Disabled`|Choose Enabled to create a Windows Nodegroup.|Windows node instance type
+(`WindowsNodeInstanceType`)|`t3.large`|The type of EC2 instance for the node instances.|Number of Windows nodes
+(`WindowsNumberOfNodes`)|`3`|The number of Amazon EKS Windows node instances. The default is one for each of the three Availability Zones.|Windows node group name
+(`WindowsNodeGroupName`)|`Default-Windows`|The name for EKS Windows node group.|Windows node volume size
+(`WindowsNodeVolumeSize`)|`50`|The size for the Windows node's root EBS volumes (should be at least 50 gb).
+|===
+.AWS Quick Start configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Per account shared resources
+(`PerAccountSharedResources`)|`Yes`|Choose No if you have already deployed another EKS Quick Start stack in this AWS account.|Per region shared resources
+(`PerRegionSharedResources`)|`Yes`|Choose No if you have already deployed another EKS Quick Start stack in this region.|Config set name
+(`ConfigSetName`)|`**__Requires input__**`|Name for the config set, if you have launched the advanced configuration stack, this name must match the ConfigSetName parameter in that stack for the configuration to be applied.|Quick Start S3 bucket name
+(`QSS3BucketName`)|`aws-quickstart`|S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).|Quick Start S3 key prefix
+(`QSS3KeyPrefix`)|`quickstart-amazon-eks/`|S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and forward slash (/).|Quick Start S3 bucket region
+(`QSS3BucketRegion`)|`us-east-1`|The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.
+|===
+.Optional Kubernetes add-ins
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|ALB ingress controller
+(`ALBIngressController`)|`Disabled`|Set this to Enabled to deploy the ALB ingress controller.|Cluster autoscaler
+(`ClusterAutoScaler`)|`Disabled`|Choose Enabled to enable Kubernetes cluster autoscaler.|EFS storage class
+(`EfsStorageClass`)|`Disabled`|Choose Enabled to enable EFS storage class, which will create the required EFS volume.
+|===
