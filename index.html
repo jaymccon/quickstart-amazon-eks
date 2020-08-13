@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Example Product Name on the AWS Cloud</title>
+<title>EKS on the AWS Cloud</title>
 <style>
 
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -771,7 +771,7 @@ table p {
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#_overview">Overview</a></li>
-<li><a href="#_example_product_name_on_aws">Example Product Name on AWS</a></li>
+<li><a href="#_eks_on_aws">EKS on AWS</a></li>
 <li><a href="#_cost">Cost</a></li>
 <li><a href="#_software_licenses">Software licenses</a></li>
 <li><a href="#_architecture">Architecture</a></li>
@@ -803,20 +803,20 @@ table p {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<h2 id="_example_product_name_on_the_aws_cloud" class="discrete text-center">Example Product Name on the AWS Cloud</h2>
+<h2 id="_eks_on_the_aws_cloud" class="discrete text-center">EKS on the AWS Cloud</h2>
 <h2 id="_quick_start_reference_deployment" class="discrete text-left text-center">Quick Start Reference Deployment</h2>
 <div class="imageblock text-center">
 <div class="content">
-<img src="https://aws-quickstart.s3.amazonaws.com/quickstart-documentation-base/docs/boilerplate/.images/aws-quickstart-graphic.png" alt="QS" width="80" height="80">
+<img src="https://aws-quickstart.s3.amazonaws.com/quickstart-amazon-eks/docs/boilerplate/.images/aws-quickstart-graphic.png" alt="QS" width="80" height="80">
 </div>
 </div>
 <h3 id="_draft_document_unofficial_guidance" class="discrete text-center">DRAFT DOCUMENT / UNOFFICIAL GUIDANCE</h3>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph text-center">
-<p><strong>May, 2020</strong><br>
-<em>John Doe and Jane Doe - Example Company Name, Ltd.</em><br>
-<em>Jim Smith - AWS Global Partner SA, AWS + Joe Jones - Technical Product Manager, AWS</em></p>
+<p><strong>August, 2020</strong><br>
+<em>""</em><br>
+<em>Jay McConnell, Troy Ameigh, Andrew Gargan</em></p>
 </div>
 </div>
 </div>
@@ -830,14 +830,14 @@ table p {
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Visit our <a href="https://github.com/aws-quickstart/quickstart-documentation-base" target="_blank" rel="noopener">GitHub repository</a> for source files and to post feedback,
+Visit our <a href="https://github.com/aws-quickstart/quickstart-amazon-eks" target="_blank" rel="noopener">GitHub repository</a> for source files and to post feedback,
 report bugs, or submit feature ideas for this Quick Start.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph text-left">
-<p>This Quick Start was created by Example Company Name, Ltd. in collaboration with Amazon Web Services (AWS). <a href="http://aws.amazon.com/quickstart/" target="_blank" rel="noopener">Quick Starts</a> are automated reference deployments that use AWS CloudFormation templates to deploy key technologies on AWS, following AWS best practices.</p>
+<p>This Quick Start was created by Amazon in collaboration with Amazon Web Services (AWS). <a href="http://aws.amazon.com/quickstart/" target="_blank" rel="noopener">Quick Starts</a> are automated reference deployments that use AWS CloudFormation templates to deploy key technologies on AWS, following AWS best practices.</p>
 </div>
 </div>
 </div>
@@ -850,10 +850,10 @@ report bugs, or submit feature ideas for this Quick Start.
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>This Quick Start reference deployment guide provides step-by-step instructions for deploying Example Product Name on the AWS Cloud.</p>
+<p>This Quick Start reference deployment guide provides step-by-step instructions for deploying Amazon Elastic Kubernetes Service (Amazon EKS) clusters.</p>
 </div>
 <div class="paragraph">
-<p>This Quick Start is for users who &lt;target audience and usage scenario&gt;</p>
+<p>This Quick Start is for users who are looking for a repeatable, customizable reference deployment for Amazon EKS using AWS CloudFormation.</p>
 </div>
 </div>
 </div>
@@ -874,7 +874,7 @@ collaborated with AWS on the content of the Quick Start.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_example_product_name_on_aws">Example Product Name on AWS</h2>
+<h2 id="_eks_on_aws">EKS on AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/product_description.adoc</code></strong></em></p>
@@ -882,7 +882,13 @@ collaborated with AWS on the content of the Quick Start.
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>&lt;Describe how the software works on AWS.&gt;</p>
+<p>Using Amazon EKS, you can deploy, manage, and scale containerized applications running on Kubernetes on AWS.</p>
+</div>
+<div class="paragraph">
+<p>Amazon EKS runs the Kubernetes management infrastructure for you across multiple AWS Availability Zones to eliminate a single point of failure. Amazon EKS is certified Kubernetes-conformant, so you can use existing tooling and plugins from partners and the Kubernetes community. Applications running on any standard Kubernetes environment are fully compatible and can be migrated to Amazon EKS.</p>
+</div>
+<div class="paragraph">
+<p>This reference deployment provides AWS CloudFormation templates to deploy the Kubernetes control plane, connect worker nodes to the cluster, and configure a bastion host for cluster admin operations. Additionally, the Quick Start deployment provides <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html">custom resources</a> that enable you to deploy and manage your Kubernetes applications using AWS CloudFormation by declaring Kubernetes manifests or Helm charts directly in AWS CloudFormation templates. The included Cluster Autoscaler and Amazon Elastic File System (Amazon EFS) storage options are made possible by this mechanism and are discussed in detail in the <a href="#optional-add-ins">Optional add-ins</a> section.</p>
 </div>
 </div>
 </div>
@@ -924,21 +930,7 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="paragraph">
-<p>These two paragraphs provide an example of the details you can provide. Provide links as appropriate.</p>
-</div>
-<div class="paragraph">
-<p>Example content below:</p>
-</div>
-<div class="paragraph">
-<p><em>&lt;license information&gt;This Quick Start requires a license for Example Product Name. To use the Quick Start in your production environment, sign up for a license at &lt;link&gt;. When you launch the Quick Start, place the license key in an S3 bucket and specify its location.</em></p>
-</div>
-<div class="paragraph">
-<p><em>If you don’t have a license, the Quick Start deploys with a trial license. The trial license gives you &lt;n&gt; days of free usage in a non-production environment. After this time, you can upgrade to a production license by following the instructions at &lt;link&gt;.</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;AMI information&gt;The Quick Start requires a subscription to the Amazon Machine Image (AMI) for Example Product Name, which is available from <a href="https://aws.amazon.com/marketplace/" target="_blank" rel="noopener">AWS Marketplace</a>. Additional pricing, terms, and conditions may apply. For instructions, see <a href="#step-2.-subscribe-to-the-software-ami">step 2</a> in the deployment section.</em></p>
-</div>
+
 </div>
 </div>
 </div>
@@ -952,53 +944,49 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Deploying this Quick Start for a new virtual private cloud (VPC) with
-<strong>default parameters</strong> builds the following <em>Example Product Name</em> environment in the
-AWS Cloud.</p>
+<p>Deploying this Quick Start for a new virtual private cloud (VPC) with <strong>default parameters</strong> builds the following Amazon
+EKS environment in the AWS Cloud.</p>
 </div>
 <div id="architecture1" class="imageblock">
 <div class="content">
 <a class="image" href="images/architecture_diagram.png"><img src="images/architecture_diagram.png" alt="Architecture" width="648" height="439"></a>
 </div>
-<div class="title">Figure 1. Quick Start architecture for <em>Example Product Name</em> on AWS</div>
+<div class="title">Figure 1. Quick Start architecture for <em>EKS</em> on AWS</div>
 </div>
 <div class="paragraph">
-<p>As shown in Figure 1, the Quick Start sets up the following:</p>
+<p>Figure 1: Quick Start architecture for Amazon EKS on AWS</p>
+</div>
+<div class="paragraph">
+<p>The Quick Start sets up the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A highly available architecture that spans two Availability Zones.*</p>
+<p>A highly available architecture that spans three Availability Zones.*</p>
 </li>
 <li>
-<p>A VPC configured with public and private subnets, according to AWS
-best practices, to provide you with your own virtual network on AWS.*</p>
+<p>A VPC configured with public and private subnets according to AWS best practices, to provide you with your own virtual network on AWS.*</p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In the public subnets:</p>
-</div>
+<li>
+<p>In the public subnets, managed NAT gateways to allow outbound internet access for resources in the private subnets.*</p>
+</li>
+<li>
+<p>In one public subnet, a Linux bastion host in an Auto Scaling group to allow inbound Secure Shell (SSH) access to Amazon Elastic Compute Cloud (Amazon EC2) instances in private subnets. The bastion host is also configured with the Kubernetes kubectl command line interface (CLI) for managing the Kubernetes cluster.</p>
+</li>
+<li>
+<p>An Amazon EKS cluster, which provides the Kubernetes control plane.</p>
+</li>
+<li>
+<p>In the private subnets, a group of Kubernetes nodes.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed network address translation (NAT) gateways to allow outbound
-internet access for resources in the private subnets.*</p>
-</li>
-<li>
-<p>A Linux bastion host in an Auto Scaling group to allow inbound Secure
-Shell (SSH) access to EC2 instances in public and private subnets.*</p>
+<p>The template that deploys the Quick Start into an existing VPC skips the components marked by asterisks and prompts you for your existing VPC configuration.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>In the private subnets:
-* &lt;describe any additional components&gt;.</p>
-</div>
-<div class="paragraph">
-<p>*The template that deploys the Quick Start into an existing VPC skips
-the components marked by asterisks and prompts you for your existing VPC
-configuration.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1024,7 +1012,10 @@ Cloud.</p>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>This Quick Start assumes familiarity with &lt;knowledge expectations&gt;.</p>
+<p>This Quick Start assumes familiarity with Kubernetes concepts and usage. Sections that cover building AWS CloudFormation templates using the provided custom resources assume knowledge of authoring AWS CloudFormation templates.</p>
+</div>
+<div class="paragraph">
+<p>This deployment guide also requires a moderate level of familiarity with AWS services. If you’re new to AWS, visit the <a href="https://aws.amazon.com/getting-started/">Getting Started Resource Center</a> and the <a href="https://aws.amazon.com/training/">AWS Training and Certification website</a> for materials and programs that can help you develop the skills to design, deploy, and operate your infrastructure and applications on the AWS Cloud.</p>
 </div>
 </div>
 </div>
@@ -1058,46 +1049,25 @@ Cloud.</p>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Resource</th>
-<th class="tableblock halign-left valign-top">This deployment uses</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VPCs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Elastic IP addresses</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Identity and Access Management (IAM) security groups</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IAM roles</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Auto Scaling groups</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Application Load Balancers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Network Load Balancers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;type&gt; instances</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Resources</a></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If necessary, request <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/">service quota increases</a> for the following resources. You might need to do this if an existing deployment uses these resources, and you might exceed the default quotas with this deployment. The <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/">Service Quotas console</a> displays your usage and quotas for some aspects of some services. For more information, see the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">AWS documentation</a>.</p>
+</div></div></td>
 </tr>
 </tbody>
+</table>
+<div class="paragraph">
+<p>|Resource |Default quota |This deployment uses (default configuration)
+|VPCs |5 per AWS Region |1
+|VPC security groups |300 per account |3
+|IAM roles |1,000 per account |9
+|Auto Scaling groups |200 per Region |2
+|t2.medium instances |20 per Region |3
+|t2.micro instances |20 per Region |1</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
 </table>
 </div>
 </div>
@@ -1112,16 +1082,7 @@ Cloud.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><em>us-east-1 (N. Virginia)</em> (EXAMPLE)</p>
-</li>
-<li>
-<p><em>us-east-2 (Ohio)</em> (EXAMPLE)</p>
-</li>
-</ul>
-</div>
+
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -1166,24 +1127,7 @@ Certain regions are available on an opt-in basis. Refer to the AWS Documentation
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="paragraph">
-<p>==== Prepare your AWS account</p>
-</div>
-<div class="paragraph">
-<p><em>Describe any setup required in the AWS account prior to template launch</em></p>
-</div>
-<div class="paragraph">
-<p>==== Prepare your Example Company Name, Ltd. account</p>
-</div>
-<div class="paragraph">
-<p><em>Describe any setup required in the partner portal/account prior to template launch</em></p>
-</div>
-<div class="paragraph">
-<p>==== Prepare for the deployment</p>
-</div>
-<div class="paragraph">
-<p><em>Describe any preparation required to complete the product build, such as obtaining licenses or placing files in S3</em></p>
-</div>
+
 </div>
 </div>
 </div>
@@ -1200,15 +1144,15 @@ Certain regions are available on an opt-in basis. Refer to the AWS Documentation
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Deploy Example Product Name into a new VPC (end-to-end deployment)</strong>. This option builds a new AWS environment consisting of the VPC, subnets, NAT gateways, security groups, bastion hosts, and other infrastructure components. It then deploys Example Product Name into this new VPC.</p>
+<p><strong>Deploy Amazon EKS into a new VPC (end-to-end deployment)</strong>. This option builds a new AWS environment consisting of the VPC, subnets, NAT gateways, security groups, bastion hosts, and other infrastructure components, and then deploys Amazon EKS into this new VPC.</p>
 </li>
 <li>
-<p><strong>Deploy Example Product Name into an existing VPC</strong>. This option provisions Example Product Name in your existing AWS infrastructure.</p>
+<p><strong>Deploy Amazon EKS into an existing VPC</strong>. This option provisions Amazon EKS in your existing AWS infrastructure.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The Quick Start provides separate templates for these options. It also lets you configure Classless Inter-Domain Routing (CIDR) blocks, instance types, and Example Product Name settings, as discussed later in this guide.</p>
+<p>The Quick Start provides separate templates for these options. It also lets you configure CIDR blocks, instance types, and Amazon EKS settings, as discussed later in this guide.</p>
 </div>
 </div>
 </div>
@@ -1230,15 +1174,49 @@ Certain regions are available on an opt-in basis. Refer to the AWS Documentation
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sign in to your AWS account at <a href="https://aws.amazon.com" class="bare">https://aws.amazon.com</a> with an IAM user role that has the necessary permissions. For details, see <a href="#_planning_the_deployment">Planning the deployment</a> earlier in this guide.</p>
+<p>Sign in to your AWS account at <a href="https://aws.amazon.com" class="bare">https://aws.amazon.com</a> with an IAM user role that has the necessary permissions. For details, see <a href="#planning-the-deployment">Planning the deployment</a> earlier in this guide.</p>
 </li>
 <li>
-<p>Make sure that your AWS account is configured correctly, as discussed in the <a href="#_technical_requirements">Technical requirements</a> section.</p>
+<p>Make sure that your AWS account is configured correctly, as discussed in the <a href="#technical-requirements">Technical requirements</a> section.</p>
+</li>
+<li>
+<p>Use the Region selector in the navigation bar to choose the AWS Region where you want to deploy Amazon EKS.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Amazon EKS and Amazon EFS aren’t currently supported in all AWS Regions. For a current list of supported Regions, see the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">endpoints and quotas webpage</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Select the key pair that you created earlier. In the navigation pane of the <a href="https://console.aws.amazon.com/ec2/">Amazon EC2 console</a>, choose <strong>Key Pairs</strong>, and then choose your key pair from the list.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p>=== Launch the Quick Start</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The instructions in this section reflect the older version of the AWS CloudFormation console. If you’re using the redesigned console, some of the user interface elements might be different.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1265,10 +1243,10 @@ You are responsible for the cost of the AWS services used while running this Qui
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://qs_launch_link" target="_blank" rel="noopener">Deploy Example Product Name into a new VPC on AWS</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://qs_launch_link" target="_blank" rel="noopener">Deploy EKS into a new VPC on AWS</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://qs_launch_link" target="_blank" rel="noopener">Deploy Example Product Name into an existing VPC on AWS</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://qs_launch_link" target="_blank" rel="noopener">Deploy EKS into an existing VPC on AWS</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1279,31 +1257,55 @@ You are responsible for the cost of the AWS services used while running this Qui
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If you’re deploying Example Product Name into an existing VPC, make sure that your VPC has two private subnets in different Availability Zones for the workload instances, and that the subnets aren’t shared. This Quick Start doesn’t support <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html" target="_blank" rel="noopener">shared subnets</a>. These subnets require <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html" target="_blank" rel="noopener">NAT gateways</a> in their route tables, to allow the instances to download packages and software without exposing them to the internet.
+If you’re deploying EKS into an existing VPC, make sure that your VPC has two private subnets in different Availability Zones for the workload instances, and that the subnets aren’t shared. This Quick Start doesn’t support <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html" target="_blank" rel="noopener">shared subnets</a>. These subnets require <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html" target="_blank" rel="noopener">NAT gateways</a> in their route tables, to allow the instances to download packages and software without exposing them to the internet.
 </td>
 </tr>
 </table>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Choose one of the following options to launch the AWS CloudFormation template into your AWS account. For help choosing an option, see <a href="#deployment-options">deployment options</a> earlier in this guide.</p>
+</li>
+</ol>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/6dEQ7">Deploy Amazon EKS into a<br>
+new VPC on AWS</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/e37MA">Deploy Amazon EKS into an<br>
+existing VPC on AWS</a></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>Also, make sure that the domain name option in the DHCP options is configured as explained in the <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html" target="_blank" rel="noopener">Amazon VPC documentation</a>. You provide your VPC settings when you launch the Quick Start.</p>
+<p><strong>Important:</strong> If you’re deploying Amazon EKS into an existing VPC, make sure that your VPC has three private subnets in different Availability Zones for the workload instances. These subnets require <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat.html">NAT gateways or NAT instances</a> in their route tables, to allow the instances to download packages and software without exposing them to the internet. You will also need to tag each private subnet with the tag kubernetes.io/role/internal-elb=true and each public subnet with the tag kubernetes.io/role/elb=true if you want to use the Kubernetes integration with Elastic Load Balancing.</p>
 </div>
 <div class="paragraph">
-<p>Each deployment takes about 30 minutes / 1 hour to complete.</p>
+<p>Each deployment takes about 25 minutes to complete.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Check the AWS Region that’s displayed in the upper-right corner of the navigation bar, and change it if necessary. This is where the network infrastructure for Example Product Name will be built. The template is launched in the us-east-1 Region by default.</p>
+<p>Check the Region that’s displayed in the upper-right corner of the navigation bar, and change it if necessary. This is where the network infrastructure where Amazon EKS will be built. The template is launched in the US East (Ohio) Region by default.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong> Amazon EKS and Amazon EFS aren’t currently supported in all AWS Regions. For a current list of supported Regions, see the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">endpoints and quotas webpage</a>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
-<p>On the <strong>Create stack</strong> page, keep the default setting for the template URL, and then choose <strong>Next</strong>.</p>
+<p>On the <strong>Select Template</strong> page, keep the default setting for the template URL, and then choose <strong>Next</strong>.</p>
 </li>
 <li>
-<p>On the <strong>Specify stack details</strong> page, change the stack name if needed. Review the parameters for the template. Provide values for the parameters that require input. For all other parameters, review the default settings and customize them as necessary.</p>
+<p>On the <strong>Specify Details</strong> page, change the stack name if needed. Review the parameters for the template. Provide values for the parameters that require input. For all other parameters, review the default settings and customize them as necessary.</p>
 </li>
 </ol>
 </div>
@@ -2406,7 +2408,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <p>Choose <strong>Create stack</strong> to deploy the stack.</p>
 </li>
 <li>
-<p>Monitor the status of the stack. When the status is <strong>CREATE_COMPLETE</strong>, the Example Product Name deployment is ready.</p>
+<p>Monitor the status of the stack. When the status is <strong>CREATE_COMPLETE</strong>, the EKS deployment is ready.</p>
 </li>
 <li>
 <p>Use the values displayed in the <strong>Outputs</strong> tab for the stack, as shown in figure 2, to view the created resources.</p>
@@ -2417,7 +2419,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <div class="content">
 <img src="images/cfn_outputs.png" alt="cfn_outputs" width="648" height="439">
 </div>
-<div class="title">Figure 2. Example Product Name outputs after successful deployment</div>
+<div class="title">Figure 2. EKS outputs after successful deployment</div>
 </div>
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/additional_info.adoc</code></strong></em></p>
@@ -2427,26 +2429,134 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <div class="paragraph">
 <p>== Test the deployment</p>
 </div>
-<div class="paragraph">
-<p>== Post deployment steps</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connect to the bastion host by using SSH with the key pair that you specified during deployment and the IP address in that is displayed on the <strong>Outputs</strong> tab of the AWS CloudFormation stack.</p>
+</li>
+<li>
+<p>The bastion host already has kubectl installed and configured to be able to connect to the cluster. To test the CLI’s ability to connect to the cluster, run the following command.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ kubectl version</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>== Best practices for using Example Product Name on AWS</p>
+<p>Confirm that the output includes the Server Version, which indicates a successful connection the Kubernetes control plane:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Client Version: version.Info\{Major:"1", Minor:"11", GitVersion:"&lt;version number&gt;", GitCommit:"&lt;commit ID&gt;", GitTreeState:"clean", BuildDate:"2018-12-06T01:33:57Z", GoVersion:"go1.10.3", Compiler:"gc", Platform:"linux/amd64"}
+
+Server Version: version.Info\{Major:"1", Minor:"11+", GitVersion:" &lt;version number&gt;", GitCommit:" &lt;commit ID&gt;", GitTreeState:"clean", BuildDate:"2018-12-06T23:13:14Z", GoVersion:"go1.10.3", Compiler:"gc", Platform:"linux/amd64"}</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Now check that the nodes have successfully connected to the cluster by running the get nodes command.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ kubectl get nodes
+NAME STATUS ROLES AGE VERSION
+ip-10-0-25-239.us-west-2.compute.internal Ready &lt;none&gt; 10m &lt;version number&gt;
+ip-10-0-27-244.us-west-2.compute.internal Ready &lt;none&gt; 10m &lt;version number&gt;
+ip-10-0-35-29.us-west-2.compute.internal Ready &lt;none&gt; 10m &lt;version number&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><em>Add any best practices for using the software.</em></p>
+<p>== Best practices for using Amazon EKS</p>
+</div>
+<div class="paragraph">
+<p>=== Use AWS CloudFormation for ongoing management</p>
+</div>
+<div class="paragraph">
+<p>We recommend using AWS CloudFormation to manage updating and deleting the resources that are created by this Quick Start.
+Using the Amazon EC2 console, CLI, or API to change or delete created by this Quick Start can cause future AWS
+CloudFormation operations on the stack to behave unexpectedly.</p>
+</div>
+<div class="paragraph">
+<p>=== Monitor additional resource usage</p>
+</div>
+<div class="paragraph">
+<p>This deployment enables users of the Amazon EKS cluster to be able to create ELB load balancers and Amazon EBS volumes
+as part of their Kubernetes applications. As these carry additional costs, we recommend that you grant users of the
+Amazon EKS cluster only the permissions they require via <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Kubernetes Role Based Access Control (RBAC)</a>
+and that you monitor the resource usage by using the Kubernetes CLI or the Kubernetes API to describe the persistent
+volume claims (PVC) and LoadBalancer resources across all namespaces. To disable this functionality, you can update the
+ControlPlaneRole IAM role created in the IAM child stack to deny the Kubernetes control plane access to specific AWS
+APIs like ec2:CreateVolume or elb:CreateLoadBalancer.</p>
 </div>
 <div class="paragraph">
 <p>== Security</p>
 </div>
 <div class="paragraph">
-<p><em>Add any security-related information.</em></p>
+<p>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster (through the AWS IAM Authenticator for
+Kubernetes), but it still relies on native Kubernetes RBAC for authorization. This means that IAM is used only for
+authentication of valid IAM entities. All permissions for interacting with your Amazon EKS cluster’s Kubernetes API are
+managed through the native Kubernetes RBAC system. We recommend that you grant least-privilege access via Kubernetes RBAC.</p>
 </div>
 <div class="paragraph">
-<p>== Other useful information</p>
+<p>== Adding Kubernetes users</p>
 </div>
 <div class="paragraph">
-<p><em>Add any other details that will help the customer use the software on AWS.</em></p>
+<p>This Quick Start creates an IAM role that is used to create the Kubernetes control plane. The AWS CloudFormation custom
+resources and the Linux bastion host use the IAM role to provide access to the Kubernetes API. Additional IAM users or
+roles can be added as Kubernetes admin users (system:master) by entering a comma-separated list of ARNs into the
+AdditionalEKSAdminArns parameter when you launch this Quick Start. To add users after the stack has launched, connect
+by using SSH into the bastion host and follow the steps in the <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html">Amazon EKS documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>== Managing Kubernetes resources using AWS CloudFormation</p>
+</div>
+<div class="paragraph">
+<p>This Quick Start includes Lambda functions that can be used as custom resources to enable authoring, creating, and
+managing Kubernetes-based applications using AWS CloudFormation. For example usage, see the
+<a href="https://github.com/aws-quickstart/quickstart-aws-eks/blob/master/templates/example-workload.template.yaml">example-workload template</a>.
+The needed Lambda function ARNs can be retrieved from the outputs of the <strong>Functions</strong> stack that was deployed when the
+Quick Start was launched.</p>
+</div>
+<div class="paragraph">
+<p>== Optional add-ins</p>
+</div>
+<div class="paragraph">
+<p>This Quick Start contains optional configurations and add-ins for Kubernetes that enhance the functionality and reduce
+the post-deployment configuration tasks for customers who require these add-ins.</p>
+</div>
+<div class="paragraph">
+<p>=== Cluster autoscaler</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster autoscaler</a> automatically adjusts the
+size of the Kubernetes cluster when there are insufficient resources or nodes that have been underutilized for an
+extended period of time.</p>
+</div>
+<div class="paragraph">
+<p>=== Managed node group</p>
+</div>
+<div class="paragraph">
+<p>With Amazon EKS–managed node groups, the provisioning and lifecycle management of the nodes is automated. All nodes get
+provisioned as part of an Auto Scaling group, which means you cannot use the “Cluster autoscaler” option of the
+QuickStart. Nodes are created using the latest Amazon EKS–optimized Amazon Linux 2 AMI.</p>
+</div>
+<div class="paragraph">
+<p>=== EFS StorageClass</p>
+</div>
+<div class="paragraph">
+<p>An optional EFSStorageClass volume provides redundant persistent storage that is not tied to an individual Availability
+Zone and is well suited for highly available stateful applications that are required to survive an Availability Zone
+outage. The Amazon EFS volume is made available to Kubernetes pods by the
+<a href="https://github.com/helm/charts/tree/master/stable/efs-provisioner">EFS provisioner project</a>.</p>
+</div>
+<div class="paragraph">
+<p>There are several configuration options available to tune the performance and throughput of the underlying EFS volume.
+For details, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html">Amazon EFS documentation</a>.</p>
 </div>
 </div>
 </div>
@@ -2462,34 +2572,25 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <p><strong>Q.</strong> I encountered a <strong>CREATE_FAILED</strong> error when I launched the Quick Start.</p>
 </div>
 <div class="paragraph">
-<p><strong>A.</strong> If AWS CloudFormation fails to create the stack, we recommend that you relaunch the template with <strong>Rollback on failure</strong> set to <strong>No</strong>. (This setting is under <strong>Advanced</strong> in the AWS CloudFormation console, <strong>Options</strong> page.) With this setting, the stack’s state is retained and the instance is left running, so you can troubleshoot the issue. (For Windows, look at the log files in %ProgramFiles%\Amazon\EC2ConfigService and C:\cfn\log.)</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, you continue to incur AWS charges for this stack. Please make sure to delete the stack when you finish troubleshooting.
-</td>
-</tr>
-</table>
+<p><strong>A.</strong> If AWS CloudFormation fails to create the stack, we recommend that you relaunch the template with <strong>Rollback on failure</strong> set to <strong>No</strong>. (This setting is under <strong>Advanced</strong> in the AWS CloudFormation console, <strong>Options</strong> page.) With this setting, the stack’s state will be retained and the instances will be left running, so you can troubleshoot the issue.</p>
 </div>
 <div class="paragraph">
-<p>For additional information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html" target="_blank" rel="noopener">Troubleshooting AWS CloudFormation</a> on the AWS website.</p>
+<p><strong>Important:</strong> When you set <strong>Rollback on failure</strong> to <strong>No</strong>, you will continue to incur AWS charges for this stack. Please make sure to delete the stack when you finish troubleshooting.</p>
+</div>
+<div class="paragraph">
+<p>For additional information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html">Troubleshooting AWS CloudFormation</a> on the AWS website.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q.</strong> The Custom::KubeManifest/Custom::Helm resources failed on stack create, update, or deletion.</p>
+</div>
+<div class="paragraph">
+<p><strong>A.</strong> These resources are backed by Lambda functions that are defined in the <strong>Functions</strong> stack. Their logs are stored in Amazon CloudWatch Logs and can be accessed by navigating to the Lambda console, selecting the relevant Lambda function and choosing <strong>Open in CloudWatch Logs</strong>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Q.</strong> I encountered a size limitation error when I deployed the AWS CloudFormation templates.</p>
 </div>
 <div class="paragraph">
-<p><strong>A.</strong> We recommend that you launch the Quick Start templates from the links in this guide or from another S3 bucket. If you deploy the templates from a local copy on your computer or from a location other than an S3 bucket, you might encounter template size limitations. For more information about AWS CloudFormation quotas, see the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html" target="_blank" rel="noopener">AWS documentation</a>.</p>
-</div>
-<div class="paragraph">
-<p>== Troubleshooting</p>
-</div>
-<div class="paragraph">
-<p>&lt;Steps for troubleshooting the deployment go here.&gt;</p>
+<p><strong>A.</strong> We recommend that you launch the Quick Start templates from the links in this guide or from another S3 bucket. If you deploy the templates from a local copy on your computer or from a non-S3 location, you might encounter template size limitations when you create the stack. For more information about AWS CloudFormation limits, see the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">AWS documentation</a>.</p>
 </div>
 </div>
 </div>
@@ -2500,7 +2601,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 <h2 id="_send_us_feedback">Send us feedback</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To post feedback, submit feature ideas, or report bugs, use the <strong>Issues</strong> section of the <a href="https://github.com/aws-quickstart/quickstart-documentation-base" target="_blank" rel="noopener">GitHub repository</a> for this Quick Start. If you’d like to submit code, please review the <a href="https://aws-quickstart.github.io/" target="_blank" rel="noopener">Quick Start Contributor’s Guide</a>.</p>
+<p>To post feedback, submit feature ideas, or report bugs, use the <strong>Issues</strong> section of the <a href="https://github.com/aws-quickstart/quickstart-amazon-eks" target="_blank" rel="noopener">GitHub repository</a> for this Quick Start. If you’d like to submit code, please review the <a href="https://aws-quickstart.github.io/" target="_blank" rel="noopener">Quick Start Contributor’s Guide</a>.</p>
 </div>
 </div>
 </div>
@@ -2516,13 +2617,13 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 <h2 id="_github_repository">GitHub repository</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can visit our <a href="https://github.com/aws-quickstart/quickstart-documentation-base" target="_blank" rel="noopener">GitHub repository</a> to download
+<p>You can visit our <a href="https://github.com/aws-quickstart/quickstart-amazon-eks" target="_blank" rel="noopener">GitHub repository</a> to download
 the templates and scripts for this Quick Start, to post your comments,
 and to share your customizations with others.</p>
 </div>
 <hr>
 <div class="paragraph">
-<p>© 2020, Amazon Web Services Inc., or its affiliates, and Example Company Name, Ltd.. All rights reserved.</p>
+<p>© 2020, Amazon Web Services Inc., or its affiliates, and Amazon. All rights reserved.</p>
 </div>
 <div class="sect3">
 <h4 id="_notices">Notices</h4>
@@ -2538,7 +2639,7 @@ and to share your customizations with others.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-13 22:56:13 UTC
+Last updated 2020-08-13 23:51:57 UTC
 </div>
 </div>
 </body>
