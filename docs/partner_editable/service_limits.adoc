@@ -1,5 +1,3 @@
-If necessary, request https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/[service quota increases] for the following resources. You might need to do this if an existing deployment uses these resources, and you might exceed the default quotas with this deployment. The https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/[Service Quotas console] displays your usage and quotas for some aspects of some services. For more information, see the https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html[AWS documentation].
-
 [cols=",,",options="header",]
 |===
 |Resource |Default quota |This deployment uses (default configuration)
