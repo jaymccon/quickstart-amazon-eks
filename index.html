@@ -762,6 +762,22 @@ table.tableblock .title,
 table p {
   margin: 0rem;
 }
+
+/* Add border around hyperlink images */
+a img {
+    border: 1px solid #A4A4A4;
+}
+
+#preview_mode {
+	border-color:#e0e0dc;
+	-webkit-box-shadow:0 1px 4px #e0e0dc;
+	box-shadow:0 1px 4px #e0e0dc;
+  background:#ffffb3;
+  padding-bottom: 2rem;
+}
+#preview_mode .tableblock {
+  background:#ffffb3;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -784,10 +800,10 @@ table p {
 </li>
 <li><a href="#_deployment_steps">Deployment steps</a>
 <ul class="sectlevel2">
+<li><a href="#_launch_into_a_new_vpc">Launch into a new VPC</a></li>
+<li><a href="#_launch_into_an_existing_vpc">Launch into an existing VPC</a></li>
 <li><a href="#_prepare_an_existing_eks_cluster">Prepare an existing EKS cluster</a></li>
 <li><a href="#_configure_advanced_options">Configure advanced options</a></li>
-<li><a href="#_launch_into_an_existing_vpc">Launch into an existing VPC</a></li>
-<li><a href="#_launch_into_a_new_vpc">Launch into a new VPC</a></li>
 </ul>
 </li>
 <li><a href="#_send_us_feedback">Send us feedback</a></li>
@@ -811,18 +827,23 @@ table p {
 </div>
 </div>
 <h3 id="_draft_document_unofficial_guidance" class="discrete text-center">DRAFT DOCUMENT / UNOFFICIAL GUIDANCE</h3>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph text-center">
+<div class="paragraph">
+<p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/__settings</em>.adoc</code></strong>_</p>
+</div>
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph text-center">
 <p><strong>August, 2020</strong><br>
 <em></em><br>
 <em>Jay McConnell, Troy Ameigh, Andrew Gargan</em></p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><em><strong>The previous information is configured within <code>partner_editable/_settings.adoc</code></strong></em></p>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -845,18 +866,23 @@ report bugs, or submit feature ideas for this Quick Start.
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/overview_target_and_usage</code></strong></em></p>
+<p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/overview_target_and_usage.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>This Quick Start reference deployment guide provides step-by-step instructions for deploying Amazon Elastic Kubernetes Service (Amazon EKS) clusters.</p>
 </div>
 <div class="paragraph">
 <p>This Quick Start is for users who are looking for a repeatable, customizable reference deployment for Amazon EKS using AWS CloudFormation.</p>
-</div>
-</div>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -879,9 +905,13 @@ collaborated with AWS on the content of the Quick Start.
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/product_description.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Using Amazon EKS, you can deploy, manage, and scale containerized applications running on Kubernetes on AWS.</p>
 </div>
 <div class="paragraph">
@@ -889,9 +919,10 @@ collaborated with AWS on the content of the Quick Start.
 </div>
 <div class="paragraph">
 <p>This reference deployment provides AWS CloudFormation templates to deploy the Kubernetes control plane, connect worker nodes to the cluster, and configure a bastion host for cluster admin operations. Additionally, the Quick Start deployment provides <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html">custom resources</a> that enable you to deploy and manage your Kubernetes applications using AWS CloudFormation by declaring Kubernetes manifests or Helm charts directly in AWS CloudFormation templates. The included Cluster Autoscaler and Amazon Elastic File System (Amazon EFS) storage options are made possible by this mechanism and are discussed in detail in the <a href="#optional-add-ins">Optional add-ins</a> section.</p>
-</div>
-</div>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -928,11 +959,16 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/licenses.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-
-</div>
-</div>
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -941,9 +977,13 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/architecture.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Deploying this Quick Start for a new virtual private cloud (VPC) with <strong>default parameters</strong> builds the following Amazon
 EKS environment in the AWS Cloud.</p>
 </div>
@@ -987,9 +1027,10 @@ EKS environment in the AWS Cloud.</p>
 </div>
 </li>
 </ul>
-</div>
-</div>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -1009,16 +1050,21 @@ Cloud.</p>
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/specialized_knowledge.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>This Quick Start assumes familiarity with Kubernetes concepts and usage. Sections that cover building AWS CloudFormation templates using the provided custom resources assume knowledge of authoring AWS CloudFormation templates.</p>
 </div>
 <div class="paragraph">
 <p>This deployment guide also requires a moderate level of familiarity with AWS services. If you’re new to AWS, visit the <a href="https://aws.amazon.com/getting-started/">Getting Started Resource Center</a> and the <a href="https://aws.amazon.com/training/">AWS Training and Certification website</a> for materials and programs that can help you develop the skills to design, deploy, and operate your infrastructure and applications on the AWS Cloud.</p>
-</div>
-</div>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_aws_account">AWS account</h3>
@@ -1042,8 +1088,7 @@ Cloud.</p>
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/service_limits.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
+<div id="preview_mode">
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1067,23 +1112,14 @@ Cloud.</p>
 |t2.medium instances |20 per Region |3
 |t2.micro instances |20 per Region |1</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-</table>
-</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_supported_regions">Supported regions</h4>
-<div class="paragraph">
-<p>The following regions are currently supported by this Quick Start.</p>
-</div>
+<h4 id="_supported_regions">Supported Regions</h4>
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/regions.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-
-</div>
+<div id="preview_mode">
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1092,7 +1128,7 @@ Cloud.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Certain regions are available on an opt-in basis. Refer to the AWS Documentation on <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html" target="_blank" rel="noopener">Managing Regions</a> for more information.
+Certain Regions are available on an opt-in basis. Refer to the AWS Documentation on <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html" target="_blank" rel="noopener">Managing Regions</a> for more information.
 </td>
 </tr>
 </table>
@@ -1125,20 +1161,29 @@ Certain regions are available on an opt-in basis. Refer to the AWS Documentation
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/pre-reqs.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-
-</div>
-</div>
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_deployment_options">Deployment options</h4>
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/deployment_options.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>This Quick Start provides two deployment options:</p>
 </div>
 <div class="ulist">
@@ -1153,9 +1198,10 @@ Certain regions are available on an opt-in basis. Refer to the AWS Documentation
 </div>
 <div class="paragraph">
 <p>The Quick Start provides separate templates for these options. It also lets you configure CIDR blocks, instance types, and Amazon EKS settings, as discussed later in this guide.</p>
-</div>
-</div>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1164,9 +1210,9 @@ Certain regions are available on an opt-in basis. Refer to the AWS Documentation
 <h2 id="_deployment_steps">Deployment steps</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/deploy_steps</em>.adoc</code></strong>_</p>
+<p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/deploy_steps.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
+<div id="preview_mode" class="openblock">
 <div class="content">
 <div class="paragraph">
 <p>=== Sign in to your AWS account</p>
@@ -1328,688 +1374,9 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </table>
 </div>
 <div class="sect2">
-<h3 id="_prepare_an_existing_eks_cluster">Prepare an existing EKS cluster</h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. EKS cluster details</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EKS cluster name
-(<code>KubeClusterName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the EKS cluster to be enabled for CloudFormation use.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VPC ID
-(<code>VPCID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the VPC that contains your EKS cluster (e.g., vpc-0343606e).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EKS Subnet IDs
-(<code>K8sSubnetIds</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] comma separated list of Subnet IDs associated with the EKS cluster. Must have routes to the Kubernetes, CloudFormation and EKS endpoints. Leave blank for publicly accessible clusters.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP proxy
-(<code>HttpProxy</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP(S) proxy configuration, if provided all worker nodes and pod egress traffic will go use this proxy. Example: <a href="http://10.101.0.100:3128/" class="bare">http://10.101.0.100:3128/</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EKS Security Group
-(<code>ControlPlaneSecurityGroup</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Security Group ID attached to the EKS cluster. Must have allow outbound access to the Kubernetes, CloudFormation and EKS endpoints. Leave blank for publicly accessible clusters.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deploy account level shared resources
-(<code>PerAccountSharedResources</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "No" if you have already deployed the EKS account shared resources in this AWS account.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deploy region level shared resources
-(<code>PerRegionSharedResources</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "No" if you have already deployed the EKS regional shared resources stack in this Region.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
-(<code>QSS3BucketName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
-(<code>QSS3KeyPrefix</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-amazon-eks/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and forward slash (/).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket region
-(<code>QSS3BucketRegion</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_configure_advanced_options">Configure advanced options</h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Quick Start Configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Config set name
-(<code>ConfigSetName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name for the config set, the same name must be used when launching the main EKS Quick Start.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. EKS cluster configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes version
-(<code>KubernetesVersion</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.16</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Kubernetes control plane version.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public access CIDRs
-(<code>EKSPublicAccessCIDRs</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.0.0.0/0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The public CIDR IP ranges that are permitted to access the Kubernetes API. These values are only used if EKSPublicAccessEndpoint is enabled. Can&#8217;t contain private IP ranges.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private access endpoint
-(<code>EKSPrivateAccessEndpoint</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Configure access to the Kubernetes API server endpoint from within your VPC. If this is disabled, EKSPublicAccessEndpoint must be enabled.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cluster logging types
-(<code>EKSClusterLoggingTypes</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>api,audit,authenticator,controllerManager,scheduler</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EKS cluster control plane logs to be exported to CloudWatch Logs.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Encrypt secrets
-(<code>EKSEncryptSecrets</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Envelope encryption of Kubernetes secrets using KMS.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Encrypt secrets KMS key ARN
-(<code>EKSEncryptSecretsKmsKeyArn</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] KMS key to use for envelope encryption of Kubernetes secrets. If this parameter is omitted A key will be created for the cluster. The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enable IAM OIDC provider
-(<code>IamOidcProvider</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables IAM roles for Kubernetes service accounts.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Default node group configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Group name
-(<code>NodeGroupName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Default</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name for EKS node group.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Operating system
-(<code>NodeAMIOS</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amazon-Linux-HVM</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose the operating system to be used for the default node group.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Volume size
-(<code>NodeVolumeSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>20</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The size for the node&#8217;s root EBS volumes.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group AMI type
-(<code>ManagedNodeGroupAMIType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AL2_x86_64</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select one of the two AMI types for your managed node group (only applies if you chose "yes" for ManagedNodeGroup). GPU instance types should use the AL2_x86_64_GPU AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support. Non-GPU instances should use the AL2_x86_64 AMI type, which uses the Amazon EKS-optimized Linux AMI.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group label
-(<code>MangedNodeGroupLabel</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a custom name label to the managed node group nodes. If you dont do this then a default one will be added for you.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Custom AMI ID
-(<code>CustomAmiId</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] If an AMI id is specified here it will be used in stead of the ami determined from the OS/region.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bootstrap arguments
-(<code>BootstrapArguments</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in <a href="https://github.com/awslabs/amazon-eks-ami/blob/master/files/bootstrap.sh" class="bare">https://github.com/awslabs/amazon-eks-ami/blob/master/files/bootstrap.sh</a> .</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Bastion configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Operating system
-(<code>BastionOS</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amazon-Linux2-HVM</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Linux distribution for the AMI to be used for the bastion instances.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bootstrap script
-(<code>BastionBootstrapScript</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An alternative initialization script to run during setup, if left blank the default bootstrap will script will be used.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type
-(<code>BastionInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.micro</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for the bastion instances.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Root volume size
-(<code>BastionRootVolumeSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The size in GB for the root EBS volume.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IAM role name
-(<code>BastionIAMRoleName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An existing IAM role name to attach to the bastion. if left blank, a new role will be created.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enable TCP forwarding
-(<code>BastionEnableTCPForwarding</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To enable TCP forwarding, choose true.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enable X11 forwarding
-(<code>BastionEnableX11Forwarding</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To enable X11 forwarding, choose true.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Variables
-(<code>BastionVariables</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A comma-separated list of environment variables for use in bootstrapping. Variables must be in the format KEY=VALUE. VALUE cannot contain commas.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. EFS storage class configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Performance mode
-(<code>EfsPerformanceMode</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generalPurpose</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose maxIO mode to provide greater IOPS with an increased latency. Only has an effect when EfsStorageClass is enabled.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Throughput mode
-(<code>EfsThroughputMode</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bursting</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose provisioned for throughput that is not dependent on the amount of data stored in the file system. Only has an effect when EfsStorageClass is enabled.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Provisioned throughput in Mibps
-(<code>EfsProvisionedThroughputInMibps</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set to 0 if EfsThroughputMode is set to bursting. Only has an effect when EfsStorageClass is enabled. If using provisioned throughput, value must be between 0-1024.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_launch_into_an_existing_vpc">Launch into an existing VPC</h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Network configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VPC ID
-(<code>VPCID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of your existing VPC (e.g., vpc-0343606e)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 1 ID
-(<code>PrivateSubnet1ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the private subnet in Availability Zone 1 in your existing VPC (e.g., subnet-fe9a8b32)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 2 ID
-(<code>PrivateSubnet2ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the private subnet in Availability Zone 2 in your existing VPC (e.g., subnet-be8b01ea)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 3 ID
-(<code>PrivateSubnet3ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the private subnet in Availability Zone 3 in your existing VPC (e.g., subnet-abd39039)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 1 ID
-(<code>PublicSubnet1ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the public subnet in Availability Zone 1 in your existing VPC (e.g., subnet-a0246dcd)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 2 ID
-(<code>PublicSubnet2ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the public subnet in Availability Zone 2 in your existing VPC (e.g., subnet-b1236eea)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 3 ID
-(<code>PublicSubnet3ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the public subnet in Availability Zone 3 in your existing VPC (e.g., subnet-c3456aba)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed external access CIDR
-(<code>RemoteAccessCIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The CIDR IP range that is permitted to access the instances. We recommend that you set this value to a trusted IP range.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP proxy
-(<code>HttpProxy</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP(S) proxy configuration, if provided all worker nodes and pod egress traffic will go use this proxy. Example: <a href="http://10.101.0.100:3128/" class="bare">http://10.101.0.100:3128/</a></p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. Amazon EC2 configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSH key name
-(<code>KeyPairName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of an existing public/private key pair, which allows you to securely connect to your instance after it launches</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Provision bastion host
-(<code>ProvisionBastionHost</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Skip creating a bastion host by setting this is set to Disabled.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. Amazon EKS configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EKS cluster name
-(<code>EKSClusterName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] Name for the EKS cluster, if left blank one will be auto-generated. Must be unique within the AWS Region.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nodes instance type
-(<code>NodeInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.medium</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The type of EC2 instance for the node instances.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of nodes
-(<code>NumberOfNodes</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of Amazon EKS node instances. The default is one for each of the three Availability Zones.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EKS public access endpoint
-(<code>EKSPublicAccessEndpoint</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Configure access to the Kubernetes API server endpoint from outside of your VPC.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group
-(<code>ManagedNodeGroup</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>no</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose if you want to use a managed node group. If you select "yes", you must select Kubernetes version 1.14 or higher.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Additional EKS admin ARN (IAM user)
-(<code>AdditionalEKSAdminUserArn</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] IAM user Amazon Resource Name (ARN) to be granted admin access to the EKS cluster</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Additional EKS admin ARN (IAM role)
-(<code>AdditionalEKSAdminRoleArn</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] IAM role Amazon Resource Name (ARN) to be granted admin access to the EKS cluster</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. Snyk monitor [APN security partner]</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Snyk integration ID
-(<code>SnykIntegrationId</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Snyk Kubernetes integration ID. If Snyk is enabled, this must be provided. For more information see <a href="https://support.snyk.io/hc/en-us/articles/360003916158-Install-the-Snyk-controller-with-Helm" class="bare">https://support.snyk.io/hc/en-us/articles/360003916158-Install-the-Snyk-controller-with-Helm</a> .</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Snyk integration
-(<code>SnykIntegration</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Snyk security monitor integration. For more information see <a href="https://github.com/aws-quickstart/quickstart-eks-snyk/" class="bare">https://github.com/aws-quickstart/quickstart-eks-snyk/</a> .</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. New Relic infrastructure [APN monitoring partner]</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">New Relic integration
-(<code>NewRelicIntegration</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">New Relic infrastructure monitoring integration. For more information see <a href="https://github.com/aws-quickstart/quickstart-eks-newrelic-infrastructure/" class="bare">https://github.com/aws-quickstart/quickstart-eks-newrelic-infrastructure/</a> .</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">New Relic license key
-(<code>NewRelicLicenseKey</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] New Relic infrastructure license key. If New Relic is enabled, this must be provided. For more information see <a href="https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key" class="bare">https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key</a> .</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. Optional Amazon EKS Windows configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allow for creation of Windows node group
-(<code>WindowsSupport</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose Enabled to create a Windows Nodegroup.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node instance type
-(<code>WindowsNodeInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.large</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The type of EC2 instance for the node instances.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of Windows nodes
-(<code>WindowsNumberOfNodes</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of Amazon EKS Windows node instances. The default is one for each of the three Availability Zones.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node group name
-(<code>WindowsNodeGroupName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Default-Windows</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name for EKS Windows node group.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node volume size
-(<code>WindowsNodeVolumeSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>50</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The size for the Windows node&#8217;s root EBS volumes (should be at least 50 gb).</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. AWS Quick Start configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Per account shared resources
-(<code>PerAccountSharedResources</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose No if you have already deployed another EKS Quick Start stack in this AWS account.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Per region shared resources
-(<code>PerRegionSharedResources</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose No if you have already deployed another EKS Quick Start stack in this region.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Config set name
-(<code>ConfigSetName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name for the config set, if you have launched the advanced configuration stack, this name must match the ConfigSetName parameter in that stack for the configuration to be applied.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
-(<code>QSS3BucketName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
-(<code>QSS3KeyPrefix</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-amazon-eks/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and forward slash (/).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket region
-(<code>QSS3BucketRegion</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. Optional Kubernetes add-ins</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ALB ingress controller
-(<code>ALBIngressController</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set this to Enabled to deploy the ALB ingress controller.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cluster autoscaler
-(<code>ClusterAutoScaler</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose Enabled to enable Kubernetes cluster autoscaler.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EFS storage class
-(<code>EfsStorageClass</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose Enabled to enable EFS storage class, which will create the required EFS volume.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_launch_into_a_new_vpc">Launch into a new VPC</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. VPC network configuration</caption>
+<caption class="title">Table 1. VPC network configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2092,7 +1459,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Amazon EC2 configuration</caption>
+<caption class="title">Table 2. Amazon EC2 configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2115,7 +1482,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. Amazon EKS configuration</caption>
+<caption class="title">Table 3. Amazon EKS configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2192,7 +1559,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. Snyk monitor [APN security partner]</caption>
+<caption class="title">Table 4. Snyk monitor [APN security partner]</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2221,7 +1588,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. New Relic infrastructure [APN monitoring partner]</caption>
+<caption class="title">Table 5. New Relic infrastructure [APN monitoring partner]</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2250,7 +1617,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 20. Optional Amazon EKS Windows configuration</caption>
+<caption class="title">Table 6. Optional Amazon EKS Windows configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2297,7 +1664,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 21. Optional Kubernetes add-ins</caption>
+<caption class="title">Table 7. Optional Kubernetes add-ins</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2338,7 +1705,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 22. AWS Quick Start configuration</caption>
+<caption class="title">Table 8. AWS Quick Start configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2396,6 +1763,685 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_launch_into_an_existing_vpc">Launch into an existing VPC</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. Network configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC ID
+(<code>VPCID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of your existing VPC (e.g., vpc-0343606e)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 1 ID
+(<code>PrivateSubnet1ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the private subnet in Availability Zone 1 in your existing VPC (e.g., subnet-fe9a8b32)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 2 ID
+(<code>PrivateSubnet2ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the private subnet in Availability Zone 2 in your existing VPC (e.g., subnet-be8b01ea)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 3 ID
+(<code>PrivateSubnet3ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the private subnet in Availability Zone 3 in your existing VPC (e.g., subnet-abd39039)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 1 ID
+(<code>PublicSubnet1ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the public subnet in Availability Zone 1 in your existing VPC (e.g., subnet-a0246dcd)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 2 ID
+(<code>PublicSubnet2ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the public subnet in Availability Zone 2 in your existing VPC (e.g., subnet-b1236eea)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 3 ID
+(<code>PublicSubnet3ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the public subnet in Availability Zone 3 in your existing VPC (e.g., subnet-c3456aba)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed external access CIDR
+(<code>RemoteAccessCIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The CIDR IP range that is permitted to access the instances. We recommend that you set this value to a trusted IP range.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP proxy
+(<code>HttpProxy</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP(S) proxy configuration, if provided all worker nodes and pod egress traffic will go use this proxy. Example: <a href="http://10.101.0.100:3128/" class="bare">http://10.101.0.100:3128/</a></p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 10. Amazon EC2 configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSH key name
+(<code>KeyPairName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of an existing public/private key pair, which allows you to securely connect to your instance after it launches</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provision bastion host
+(<code>ProvisionBastionHost</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Skip creating a bastion host by setting this is set to Disabled.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 11. Amazon EKS configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EKS cluster name
+(<code>EKSClusterName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] Name for the EKS cluster, if left blank one will be auto-generated. Must be unique within the AWS Region.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nodes instance type
+(<code>NodeInstanceType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.medium</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of EC2 instance for the node instances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of nodes
+(<code>NumberOfNodes</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of Amazon EKS node instances. The default is one for each of the three Availability Zones.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EKS public access endpoint
+(<code>EKSPublicAccessEndpoint</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configure access to the Kubernetes API server endpoint from outside of your VPC.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group
+(<code>ManagedNodeGroup</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>no</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose if you want to use a managed node group. If you select "yes", you must select Kubernetes version 1.14 or higher.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional EKS admin ARN (IAM user)
+(<code>AdditionalEKSAdminUserArn</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] IAM user Amazon Resource Name (ARN) to be granted admin access to the EKS cluster</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional EKS admin ARN (IAM role)
+(<code>AdditionalEKSAdminRoleArn</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] IAM role Amazon Resource Name (ARN) to be granted admin access to the EKS cluster</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 12. Snyk monitor [APN security partner]</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snyk integration ID
+(<code>SnykIntegrationId</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Snyk Kubernetes integration ID. If Snyk is enabled, this must be provided. For more information see <a href="https://support.snyk.io/hc/en-us/articles/360003916158-Install-the-Snyk-controller-with-Helm" class="bare">https://support.snyk.io/hc/en-us/articles/360003916158-Install-the-Snyk-controller-with-Helm</a> .</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snyk integration
+(<code>SnykIntegration</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snyk security monitor integration. For more information see <a href="https://github.com/aws-quickstart/quickstart-eks-snyk/" class="bare">https://github.com/aws-quickstart/quickstart-eks-snyk/</a> .</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 13. New Relic infrastructure [APN monitoring partner]</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">New Relic integration
+(<code>NewRelicIntegration</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">New Relic infrastructure monitoring integration. For more information see <a href="https://github.com/aws-quickstart/quickstart-eks-newrelic-infrastructure/" class="bare">https://github.com/aws-quickstart/quickstart-eks-newrelic-infrastructure/</a> .</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">New Relic license key
+(<code>NewRelicLicenseKey</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] New Relic infrastructure license key. If New Relic is enabled, this must be provided. For more information see <a href="https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key" class="bare">https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key</a> .</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 14. Optional Amazon EKS Windows configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow for creation of Windows node group
+(<code>WindowsSupport</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose Enabled to create a Windows Nodegroup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node instance type
+(<code>WindowsNodeInstanceType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.large</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of EC2 instance for the node instances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of Windows nodes
+(<code>WindowsNumberOfNodes</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of Amazon EKS Windows node instances. The default is one for each of the three Availability Zones.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node group name
+(<code>WindowsNodeGroupName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Default-Windows</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name for EKS Windows node group.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node volume size
+(<code>WindowsNodeVolumeSize</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>50</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The size for the Windows node&#8217;s root EBS volumes (should be at least 50 gb).</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 15. AWS Quick Start configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Per account shared resources
+(<code>PerAccountSharedResources</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose No if you have already deployed another EKS Quick Start stack in this AWS account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Per region shared resources
+(<code>PerRegionSharedResources</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose No if you have already deployed another EKS Quick Start stack in this region.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Config set name
+(<code>ConfigSetName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name for the config set, if you have launched the advanced configuration stack, this name must match the ConfigSetName parameter in that stack for the configuration to be applied.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
+(<code>QSS3BucketName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
+(<code>QSS3KeyPrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-amazon-eks/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and forward slash (/).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket region
+(<code>QSS3BucketRegion</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 16. Optional Kubernetes add-ins</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ALB ingress controller
+(<code>ALBIngressController</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set this to Enabled to deploy the ALB ingress controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cluster autoscaler
+(<code>ClusterAutoScaler</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose Enabled to enable Kubernetes cluster autoscaler.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EFS storage class
+(<code>EfsStorageClass</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose Enabled to enable EFS storage class, which will create the required EFS volume.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_prepare_an_existing_eks_cluster">Prepare an existing EKS cluster</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 17. EKS cluster details</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EKS cluster name
+(<code>KubeClusterName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the EKS cluster to be enabled for CloudFormation use.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC ID
+(<code>VPCID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the VPC that contains your EKS cluster (e.g., vpc-0343606e).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EKS Subnet IDs
+(<code>K8sSubnetIds</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] comma separated list of Subnet IDs associated with the EKS cluster. Must have routes to the Kubernetes, CloudFormation and EKS endpoints. Leave blank for publicly accessible clusters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP proxy
+(<code>HttpProxy</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP(S) proxy configuration, if provided all worker nodes and pod egress traffic will go use this proxy. Example: <a href="http://10.101.0.100:3128/" class="bare">http://10.101.0.100:3128/</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EKS Security Group
+(<code>ControlPlaneSecurityGroup</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[Optional] Security Group ID attached to the EKS cluster. Must have allow outbound access to the Kubernetes, CloudFormation and EKS endpoints. Leave blank for publicly accessible clusters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deploy account level shared resources
+(<code>PerAccountSharedResources</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "No" if you have already deployed the EKS account shared resources in this AWS account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deploy region level shared resources
+(<code>PerRegionSharedResources</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "No" if you have already deployed the EKS regional shared resources stack in this Region.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
+(<code>QSS3BucketName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
+(<code>QSS3KeyPrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-amazon-eks/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and forward slash (/).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket region
+(<code>QSS3BucketRegion</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_configure_advanced_options">Configure advanced options</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 18. Quick Start Configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Config set name
+(<code>ConfigSetName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name for the config set, the same name must be used when launching the main EKS Quick Start.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 19. EKS cluster configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes version
+(<code>KubernetesVersion</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.17</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Kubernetes control plane version.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public access CIDRs
+(<code>EKSPublicAccessCIDRs</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.0.0.0/0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The public CIDR IP ranges that are permitted to access the Kubernetes API. These values are only used if EKSPublicAccessEndpoint is enabled. Can&#8217;t contain private IP ranges.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private access endpoint
+(<code>EKSPrivateAccessEndpoint</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configure access to the Kubernetes API server endpoint from within your VPC. If this is disabled, EKSPublicAccessEndpoint must be enabled.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cluster logging types
+(<code>EKSClusterLoggingTypes</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>api,audit,authenticator,controllerManager,scheduler</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EKS cluster control plane logs to be exported to CloudWatch Logs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Encrypt secrets
+(<code>EKSEncryptSecrets</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Envelope encryption of Kubernetes secrets using KMS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Encrypt secrets KMS key ARN
+(<code>EKSEncryptSecretsKmsKeyArn</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] KMS key to use for envelope encryption of Kubernetes secrets. If this parameter is omitted A key will be created for the cluster. The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable IAM OIDC provider
+(<code>IamOidcProvider</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables IAM roles for Kubernetes service accounts.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 20. Default node group configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group name
+(<code>NodeGroupName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Default</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name for EKS node group.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operating system
+(<code>NodeAMIOS</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amazon-Linux-HVM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose the operating system to be used for the default node group.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume size
+(<code>NodeVolumeSize</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>20</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The size for the node&#8217;s root EBS volumes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group AMI type
+(<code>ManagedNodeGroupAMIType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AL2_x86_64</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select one of the two AMI types for your managed node group (only applies if you chose "yes" for ManagedNodeGroup). GPU instance types should use the AL2_x86_64_GPU AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support. Non-GPU instances should use the AL2_x86_64 AMI type, which uses the Amazon EKS-optimized Linux AMI.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group label
+(<code>MangedNodeGroupLabel</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a custom name label to the managed node group nodes. If you dont do this then a default one will be added for you.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom AMI ID
+(<code>CustomAmiId</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[OPTIONAL] If an AMI id is specified here it will be used in stead of the ami determined from the OS/region.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bootstrap arguments
+(<code>BootstrapArguments</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in <a href="https://github.com/awslabs/amazon-eks-ami/" class="bare">https://github.com/awslabs/amazon-eks-ami/</a> .</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 21. Bastion configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operating system
+(<code>BastionOS</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amazon-Linux2-HVM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Linux distribution for the AMI to be used for the bastion instances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bootstrap script
+(<code>BastionBootstrapScript</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An alternative initialization script to run during setup, if left blank the default bootstrap will script will be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type
+(<code>BastionInstanceType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.micro</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for the bastion instances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Root volume size
+(<code>BastionRootVolumeSize</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The size in GB for the root EBS volume.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM role name
+(<code>BastionIAMRoleName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An existing IAM role name to attach to the bastion. if left blank, a new role will be created.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable TCP forwarding
+(<code>BastionEnableTCPForwarding</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To enable TCP forwarding, choose true.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable X11 forwarding
+(<code>BastionEnableX11Forwarding</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To enable X11 forwarding, choose true.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variables
+(<code>BastionVariables</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A comma-separated list of environment variables for use in bootstrapping. Variables must be in the format KEY=VALUE. VALUE cannot contain commas.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 22. EFS storage class configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performance mode
+(<code>EfsPerformanceMode</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generalPurpose</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose maxIO mode to provide greater IOPS with an increased latency. Only has an effect when EfsStorageClass is enabled.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Throughput mode
+(<code>EfsThroughputMode</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bursting</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose provisioned for throughput that is not dependent on the amount of data stored in the file system. Only has an effect when EfsStorageClass is enabled.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provisioned throughput in Mibps
+(<code>EfsProvisionedThroughputInMibps</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to 0 if EfsThroughputMode is set to bursting. Only has an effect when EfsStorageClass is enabled. If using provisioned throughput, value must be between 0-1024.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="olist arabic">
 <ol class="arabic" start="5">
 <li>
@@ -2411,24 +2457,28 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <p>Monitor the status of the stack. When the status is <strong>CREATE_COMPLETE</strong>, the Amazon EKS deployment is ready.</p>
 </li>
 <li>
-<p>Use the values displayed in the <strong>Outputs</strong> tab for the stack, as shown in figure 2, to view the created resources.</p>
+<p>Use the values displayed in the <strong>Outputs</strong> tab for the stack, as shown in <a href="#cfn_outputs">Amazon EKS outputs after successful deployment</a>, to view the created resources.</p>
 </li>
 </ol>
 </div>
 <div id="cfn_outputs" class="imageblock">
 <div class="content">
-<img src="images/cfn_outputs.png" alt="cfn_outputs" width="648" height="439">
+<a class="image" href="images/cfn_outputs.png"><img src="images/cfn_outputs.png" alt="cfn_outputs" width="648" height="439"></a>
 </div>
 <div class="title">Figure 2. Amazon EKS outputs after successful deployment</div>
 </div>
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/additional_info.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>== Test the deployment</p>
-</div>
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="sect1">
+<h2 id="_test_the_deployment">Test the deployment</h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2470,20 +2520,21 @@ ip-10-0-27-244.us-west-2.compute.internal Ready &lt;none&gt; 10m &lt;version num
 ip-10-0-35-29.us-west-2.compute.internal Ready &lt;none&gt; 10m &lt;version number&gt;</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>== Best practices for using Amazon EKS</p>
 </div>
-<div class="paragraph">
-<p>=== Use AWS CloudFormation for ongoing management</p>
 </div>
+<div class="sect1">
+<h2 id="_best_practices_for_using_amazon_eks">Best practices for using Amazon EKS</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_use_aws_cloudformation_for_ongoing_management">Use AWS CloudFormation for ongoing management</h3>
 <div class="paragraph">
 <p>We recommend using AWS CloudFormation to manage updating and deleting the resources that are created by this Quick Start.
 Using the Amazon EC2 console, CLI, or API to change or delete created by this Quick Start can cause future AWS
 CloudFormation operations on the stack to behave unexpectedly.</p>
 </div>
-<div class="paragraph">
-<p>=== Monitor additional resource usage</p>
 </div>
+<div class="sect2">
+<h3 id="_monitor_additional_resource_usage">Monitor additional resource usage</h3>
 <div class="paragraph">
 <p>This deployment enables users of the Amazon EKS cluster to be able to create ELB load balancers and Amazon EBS volumes
 as part of their Kubernetes applications. As these carry additional costs, we recommend that you grant users of the
@@ -2493,18 +2544,23 @@ volume claims (PVC) and LoadBalancer resources across all namespaces. To disable
 ControlPlaneRole IAM role created in the IAM child stack to deny the Kubernetes control plane access to specific AWS
 APIs like ec2:CreateVolume or elb:CreateLoadBalancer.</p>
 </div>
-<div class="paragraph">
-<p>== Security</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security">Security</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster (through the AWS IAM Authenticator for
 Kubernetes), but it still relies on native Kubernetes RBAC for authorization. This means that IAM is used only for
 authentication of valid IAM entities. All permissions for interacting with your Amazon EKS cluster’s Kubernetes API are
 managed through the native Kubernetes RBAC system. We recommend that you grant least-privilege access via Kubernetes RBAC.</p>
 </div>
-<div class="paragraph">
-<p>== Adding Kubernetes users</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_adding_kubernetes_users">Adding Kubernetes users</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Quick Start creates an IAM role that is used to create the Kubernetes control plane. The AWS CloudFormation custom
 resources and the Linux bastion host use the IAM role to provide access to the Kubernetes API. Additional IAM users or
@@ -2512,9 +2568,11 @@ roles can be added as Kubernetes admin users (system:master) by entering a comma
 AdditionalEKSAdminArns parameter when you launch this Quick Start. To add users after the stack has launched, connect
 by using SSH into the bastion host and follow the steps in the <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html">Amazon EKS documentation</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Managing Kubernetes resources using AWS CloudFormation</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_managing_kubernetes_resources_using_aws_cloudformation">Managing Kubernetes resources using AWS CloudFormation</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Quick Start includes Lambda functions that can be used as custom resources to enable authoring, creating, and
 managing Kubernetes-based applications using AWS CloudFormation. For example usage, see the
@@ -2522,32 +2580,33 @@ managing Kubernetes-based applications using AWS CloudFormation. For example usa
 The needed Lambda function ARNs can be retrieved from the outputs of the <strong>Functions</strong> stack that was deployed when the
 Quick Start was launched.</p>
 </div>
-<div class="paragraph">
-<p>== Optional add-ins</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_optional_add_ins">Optional add-ins</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This Quick Start contains optional configurations and add-ins for Kubernetes that enhance the functionality and reduce
 the post-deployment configuration tasks for customers who require these add-ins.</p>
 </div>
-<div class="paragraph">
-<p>=== Cluster autoscaler</p>
-</div>
+<div class="sect2">
+<h3 id="_cluster_autoscaler">Cluster autoscaler</h3>
 <div class="paragraph">
 <p><a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster autoscaler</a> automatically adjusts the
 size of the Kubernetes cluster when there are insufficient resources or nodes that have been underutilized for an
 extended period of time.</p>
 </div>
-<div class="paragraph">
-<p>=== Managed node group</p>
 </div>
+<div class="sect2">
+<h3 id="_managed_node_group">Managed node group</h3>
 <div class="paragraph">
 <p>With Amazon EKS–managed node groups, the provisioning and lifecycle management of the nodes is automated. All nodes get
 provisioned as part of an Auto Scaling group, which means you cannot use the “Cluster autoscaler” option of the
 QuickStart. Nodes are created using the latest Amazon EKS–optimized Amazon Linux 2 AMI.</p>
 </div>
-<div class="paragraph">
-<p>=== EFS StorageClass</p>
 </div>
+<div class="sect2">
+<h3 id="_efs_storageclass">EFS StorageClass</h3>
 <div class="paragraph">
 <p>An optional EFSStorageClass volume provides redundant persistent storage that is not tied to an individual Availability
 Zone and is well suited for highly available stateful applications that are required to survive an Availability Zone
@@ -2560,14 +2619,22 @@ For details, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/performa
 </div>
 </div>
 </div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/faq_troubleshooting.adoc</code></strong></em></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>== FAQ</p>
-</div>
+<table id="preview_mode" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="sect1">
+<h2 id="_faq">FAQ</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q.</strong> I encountered a <strong>CREATE_FAILED</strong> error when I launched the Quick Start.</p>
 </div>
@@ -2593,7 +2660,10 @@ For details, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/performa
 <p><strong>A.</strong> We recommend that you launch the Quick Start templates from the links in this guide or from another S3 bucket. If you deploy the templates from a local copy on your computer or from a non-S3 location, you might encounter template size limitations when you create the stack. For more information about AWS CloudFormation limits, see the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">AWS documentation</a>.</p>
 </div>
 </div>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -2639,7 +2709,7 @@ and to share your customizations with others.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-14 00:01:49 UTC
+Last updated 2020-09-01 17:28:11 UTC
 </div>
 </div>
 </body>

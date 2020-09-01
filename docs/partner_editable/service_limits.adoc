@@ -12,4 +12,3 @@ If necessary, request https://console.aws.amazon.com/servicequotas/home?region=u
 |Auto Scaling groups |200 per Region |2
 |t2.medium instances |20 per Region |3
 |t2.micro instances |20 per Region |1
-|===

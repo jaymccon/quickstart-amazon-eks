@@ -5,7 +5,7 @@ Metadata:
     EntrypointName: "Configure advanced options"
   ConfigSetName: !Ref ConfigSetName
   LintSpellExclude:
-    - https://github.com/awslabs/amazon-eks-ami/blob/master/files/bootstrap.sh
+    - https://github.com/awslabs/amazon-eks-ami/
     - Kubernetes
     - Encrypt
     - Mibps
@@ -140,6 +140,7 @@ Parameters:
     AllowedValues:
       - Amazon-Linux-HVM
       - SUSE-SLES-15-HVM
+      - BottleRocket
     Default: Amazon-Linux-HVM
     Type: String
     Description: Choose the operating system to be used for the default node group.
@@ -173,8 +174,8 @@ Parameters:
     Default: ''
   KubernetesVersion:
     Type: String
-    AllowedValues: [ "1.13", "1.14", "1.15", "1.16" ]
-    Default: "1.16"
+    AllowedValues: [ "1.15", "1.16", "1.17" ]
+    Default: "1.17"
     Description: The Kubernetes control plane version.
   IamOidcProvider:
     Type: String
@@ -184,7 +185,7 @@ Parameters:
   BootstrapArguments:
     Type: String
     Default: ""
-    Description: Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in https://github.com/awslabs/amazon-eks-ami/blob/master/files/bootstrap.sh .
+    Description: Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in https://github.com/awslabs/amazon-eks-ami/ .
   BastionOS:
     Type: String
     AllowedValues: [ "Amazon-Linux2-HVM", "Amazon-Linux-HVM", "CentOS-7-HVM", "Ubuntu-Server-14.04-LTS-HVM", "Ubuntu-Server-16.04-LTS-HVM", "SUSE-SLES-15-HVM" ]
@@ -240,12 +241,6 @@ Mappings:
   Config:
     ParameterPrefix: { Value: '/quickstart/amazon-eks' }
 Resources:
-  LambdaZipsBucketNameParameter:
-    Type: AWS::SSM::Parameter
-    Properties:
-      Type: String
-      Value: !Sub '{ "Value": "${NodeAMIOS}" }'
-      Name: !Sub ["${ParameterPrefix}/${ConfigSetName}/quickstart-s3-asset-location/LambdaZipsBucketName", {ParameterPrefix: !FindInMap [Config, ParameterPrefix, Value]}]
   NodeAMIOSParameter:
     Type: AWS::SSM::Parameter
     Properties:

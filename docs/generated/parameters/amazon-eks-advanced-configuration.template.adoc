@@ -9,7 +9,7 @@
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
 |Parameter label (name) |Default value|Description|Kubernetes version
-(`KubernetesVersion`)|`1.16`|The Kubernetes control plane version.|Public access CIDRs
+(`KubernetesVersion`)|`1.17`|The Kubernetes control plane version.|Public access CIDRs
 (`EKSPublicAccessCIDRs`)|`0.0.0.0/0`|The public CIDR IP ranges that are permitted to access the Kubernetes API. These values are only used if EKSPublicAccessEndpoint is enabled. Can't contain private IP ranges.|Private access endpoint
 (`EKSPrivateAccessEndpoint`)|`Enabled`|Configure access to the Kubernetes API server endpoint from within your VPC. If this is disabled, EKSPublicAccessEndpoint must be enabled.|Cluster logging types
 (`EKSClusterLoggingTypes`)|`api,audit,authenticator,controllerManager,scheduler`|EKS cluster control plane logs to be exported to CloudWatch Logs.|Encrypt secrets
@@ -27,7 +27,7 @@
 (`ManagedNodeGroupAMIType`)|`AL2_x86_64`|Select one of the two AMI types for your managed node group (only applies if you chose "yes" for ManagedNodeGroup). GPU instance types should use the AL2_x86_64_GPU AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support. Non-GPU instances should use the AL2_x86_64 AMI type, which uses the Amazon EKS-optimized Linux AMI.|Managed node group label
 (`MangedNodeGroupLabel`)|`**__Requires input__**`|Add a custom name label to the managed node group nodes. If you dont do this then a default one will be added for you.|Custom AMI ID
 (`CustomAmiId`)|`**__Requires input__**`|[OPTIONAL] If an AMI id is specified here it will be used in stead of the ami determined from the OS/region.|Bootstrap arguments
-(`BootstrapArguments`)|`**__Requires input__**`|Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in https://github.com/awslabs/amazon-eks-ami/blob/master/files/bootstrap.sh .
+(`BootstrapArguments`)|`**__Requires input__**`|Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in https://github.com/awslabs/amazon-eks-ami/ .
 |===
 .Bastion configuration
 [width="100%",cols="16%,11%,73%",options="header",]
