@@ -1089,29 +1089,55 @@ Cloud.</p>
 <p><em><strong>This portion of the deployment guide is located at <code>docs/partner_editable/service_limits.adoc</code></strong></em></p>
 </div>
 <div id="preview_mode">
+<div class="paragraph">
+<p>If necessary, request <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/">service quota increases</a> for the following resources. You might need to do this if an existing deployment uses these resources, and you might exceed the default quotas with this deployment. The <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/">Service Quotas console</a> displays your usage and quotas for some aspects of some services. For more information, see the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">AWS documentation</a>.</p>
+</div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Resource</th>
+<th class="tableblock halign-left valign-top">Default quota</th>
+<th class="tableblock halign-left valign-top">This deployment uses (default configuration)</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Resources</a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>If necessary, request <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/">service quota increases</a> for the following resources. You might need to do this if an existing deployment uses these resources, and you might exceed the default quotas with this deployment. The <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/">Service Quotas console</a> displays your usage and quotas for some aspects of some services. For more information, see the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">AWS documentation</a>.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPCs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 per AWS Region</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC security groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">300 per account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM roles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1,000 per account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auto Scaling groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200 per Region</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t2.medium instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 per Region</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t2.micro instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 per Region</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>|Resource |Default quota |This deployment uses (default configuration)
-|VPCs |5 per AWS Region |1
-|VPC security groups |300 per account |3
-|IAM roles |1,000 per account |9
-|Auto Scaling groups |200 per Region |2
-|t2.medium instances |20 per Region |3
-|t2.micro instances |20 per Region |1</p>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -2709,7 +2735,7 @@ and to share your customizations with others.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-01 17:28:11 UTC
+Last updated 2020-09-01 17:49:35 UTC
 </div>
 </div>
 </body>

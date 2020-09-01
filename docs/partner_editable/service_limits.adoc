@@ -1,6 +1,3 @@
-[cols=",",]
-|===
-|http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html[Resources] a|
 If necessary, request https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/[service quota increases] for the following resources. You might need to do this if an existing deployment uses these resources, and you might exceed the default quotas with this deployment. The https://console.aws.amazon.com/servicequotas/home?region=us-east-2#!/[Service Quotas console] displays your usage and quotas for some aspects of some services. For more information, see the https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html[AWS documentation].
 
 [cols=",,",options="header",]
@@ -12,3 +9,4 @@ If necessary, request https://console.aws.amazon.com/servicequotas/home?region=u
 |Auto Scaling groups |200 per Region |2
 |t2.medium instances |20 per Region |3
 |t2.micro instances |20 per Region |1
+|===
