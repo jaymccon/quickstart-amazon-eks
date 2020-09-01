@@ -1,7 +1,7 @@
 :quickstart-project-name: quickstart-amazon-eks
 :partner-product-name: Amazon EKS
 :partner-company-name: Amazon
-:doc-month: August
+:doc-month: September
 :doc-year: 2020
 :partner-contributors:
 :quickstart-contributors: Jay McConnell, Troy Ameigh, Andrew Gargan
