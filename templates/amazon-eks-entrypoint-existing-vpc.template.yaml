@@ -20,14 +20,15 @@ Metadata:
     - Enabled
     - Disabled
     - Snyk
-    - '"No"'
+    - 'No '
     - Windows
     - Grafana
     - Prometheus
     - namespaces
     - namespace
     - Fargate
-    - '"Config '
+    - '"No"'
+    - '"Config'
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:

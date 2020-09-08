@@ -25,7 +25,7 @@ Metadata:
     - APN
     - '"No"'
     - Windows
-    - '"Config '
+    - '"Config'
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:
