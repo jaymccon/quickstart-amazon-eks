@@ -14,7 +14,7 @@
 (`EKSPrivateAccessEndpoint`)|`Enabled`|Configure access to the Kubernetes API server endpoint from within your VPC. If this is set to "Disabled", "EKS public access endpoint" must be set to "Enabled."|Cluster logging types
 (`EKSClusterLoggingTypes`)|`api,audit,authenticator,controllerManager,scheduler`|EKS cluster control plane logs to be exported to CloudWatch Logs.|Encrypt secrets
 (`EKSEncryptSecrets`)|`Enabled`|Envelope encryption of Kubernetes secrets using KMS.|Encrypt secrets KMS key ARN
-(`EKSEncryptSecretsKmsKeyArn`)|`**__Requires input__**`|[OPTIONAL] KMS key to use for envelope encryption of Kubernetes secrets. If this parameter is omitted A key will be created for the cluster. The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK.|Enable IAM OIDC provider
+(`EKSEncryptSecretsKmsKeyArn`)|``|[OPTIONAL] KMS key to use for envelope encryption of Kubernetes secrets. If this parameter is omitted A key will be created for the cluster. The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK.|Enable IAM OIDC provider
 (`IamOidcProvider`)|`Enabled`|Enables IAM roles for Kubernetes service accounts.
 |===
 .Default EKS node group configuration
@@ -25,22 +25,22 @@
 (`NodeAMIOS`)|`Amazon-Linux-HVM`|Choose the operating system to be used for the default node group.|Volume size
 (`NodeVolumeSize`)|`20`|The size for the node's root EBS volumes.|Managed node group AMI type
 (`ManagedNodeGroupAMIType`)|`AL2_x86_64`|Select the AMI type for your managed node group. GPU instance types should use the "AL2_x86_64_GPU" AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support. Only applies if you chose "yes" for "Managed node group."|Managed node group label
-(`MangedNodeGroupLabel`)|`**__Requires input__**`|[OPTIONAL] Add a custom name label to the managed node group nodes. If you dont do this then a default one will be added for you.|Custom AMI ID
-(`CustomAmiId`)|`**__Requires input__**`|[OPTIONAL] If an AMI id is specified here it will be used instead of the ami determined from the OS/Region.|Bootstrap arguments
-(`BootstrapArguments`)|`**__Requires input__**`|[OPTIONAL] Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in https://github.com/awslabs/amazon-eks-ami/ .
+(`MangedNodeGroupLabel`)|``|[OPTIONAL] Add a custom name label to the managed node group nodes. If you dont do this then a default one will be added for you.|Custom AMI ID
+(`CustomAmiId`)|``|[OPTIONAL] If an AMI id is specified here it will be used instead of the ami determined from the OS/Region.|Bootstrap arguments
+(`BootstrapArguments`)|``|[OPTIONAL] Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in https://github.com/awslabs/amazon-eks-ami/ .
 |===
 .Bastion configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
 |Parameter label (name) |Default value|Description|Operating system
 (`BastionOS`)|`Amazon-Linux2-HVM`|Linux distribution of the bastion host.|Bootstrap script
-(`BastionBootstrapScript`)|`**__Requires input__**`|[OPTIONAL] Custom initialization script to run during setup. If left blank the default bootstrap will script will be used.|Instance type
+(`BastionBootstrapScript`)|``|[OPTIONAL] Custom initialization script to run during setup. If left blank the default bootstrap will script will be used.|Instance type
 (`BastionInstanceType`)|`t3.micro`|Instance type for the bastion host.|Root volume size
 (`BastionRootVolumeSize`)|`10`|The size in GB for the root EBS volume.|IAM role name
-(`BastionIAMRoleName`)|`**__Requires input__**`|[OPTIONAL] An existing IAM role name to attach to the bastion host. If left blank, a new role will be created.|Enable TCP forwarding
+(`BastionIAMRoleName`)|``|[OPTIONAL] An existing IAM role name to attach to the bastion host. If left blank, a new role will be created.|Enable TCP forwarding
 (`BastionEnableTCPForwarding`)|`false`|To enable TCP forwarding, choose "true."|Enable X11 forwarding
 (`BastionEnableX11Forwarding`)|`false`|To enable X11 forwarding, choose "true."|Variables
-(`BastionVariables`)|`**__Requires input__**`|[OPTIONAL] A comma-separated list of environment variables for use in bootstrapping. Variables must be in the format KEY=VALUE. VALUE cannot contain commas.
+(`BastionVariables`)|``|[OPTIONAL] A comma-separated list of environment variables for use in bootstrapping. Variables must be in the format KEY=VALUE. VALUE cannot contain commas.
 |===
 .EFS storage class configuration
 [width="100%",cols="16%,11%,73%",options="header",]
