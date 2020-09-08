@@ -23,9 +23,8 @@ Metadata:
     - Security
     - New Relic
     - APN
-    - '"No"'
+    - 'No '
     - Windows
-    - '"Config'
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:

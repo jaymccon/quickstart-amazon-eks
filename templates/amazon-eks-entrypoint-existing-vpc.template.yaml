@@ -27,8 +27,6 @@ Metadata:
     - namespaces
     - namespace
     - Fargate
-    - '"No"'
-    - '"Config'
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:
