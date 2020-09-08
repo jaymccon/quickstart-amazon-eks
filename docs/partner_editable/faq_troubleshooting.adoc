@@ -11,9 +11,9 @@
 
 For additional information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html[Troubleshooting AWS CloudFormation] on the AWS website.
 
-*Q.* The Custom::KubeManifest/Custom::Helm resources failed on stack create, update, or deletion.
+*Q.* A resource type starting with **AWSQS::** failed on stack create, update, or deletion.
 
-*A.* These resources are backed by Lambda functions that are defined in the *Functions* stack. Their logs are stored in Amazon CloudWatch Logs and can be accessed by navigating to the Lambda console, selecting the relevant Lambda function and choosing *Open in CloudWatch Logs*.
+*A.* These resources are CloudFormation registry resource types created by the Quick Start. Their logs are stored in Amazon CloudWatch Logs with the log group prefix of **/cloudformation/registry/awsqs-**.
 
 *Q.* I encountered a size limitation error when I deployed the AWS CloudFormation templates.
 
