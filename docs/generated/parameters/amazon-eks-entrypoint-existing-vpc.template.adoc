@@ -42,21 +42,13 @@
 .Default EKS node group configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default value|Description|Managed node group
-(`ManagedNodeGroup`)|`yes`|Choose "no" if you want to create the default node group as unmanaged.|Instance type
+|Parameter label (name) |Default value|Description|Instance type
 (`NodeInstanceType`)|`t3.medium`|EC2 instance type.|Number of nodes
 (`NumberOfNodes`)|`3`|The number of Amazon EKS node instances. The default is one for each of the three Availability Zones.|Maximum number of nodes
-(`MaxNumberOfNodes`)|`3`|The maximum number of Amazon EKS node instances. The default is three nodes.
-|===
-.Amazon EKS Windows configuration
-[width="100%",cols="16%,11%,73%",options="header",]
-|===
-|Parameter label (name) |Default value|Description|Allow for creation of Windows node group
-(`WindowsSupport`)|`Disabled`|Choose "Enabled" to create a Windows node group.|Windows node instance type
-(`WindowsNodeInstanceType`)|`t3.large`|EC2 instance type.|Number of Windows nodes
-(`WindowsNumberOfNodes`)|`3`|The number of Amazon EKS Windows node instances. The default is one for each of the three Availability Zones.|Windows node group name
-(`WindowsNodeGroupName`)|`Default-Windows`|The name for EKS Windows node group.|Windows node volume size
-(`WindowsNodeVolumeSize`)|`50`|The size for the Windows node's root EBS volumes (should be at least 50 gb).
+(`MaxNumberOfNodes`)|`3`|The maximum number of Amazon EKS node instances. The default is three nodes.|Instance family
+(`NodeInstanceFamily`)|`Standard`|Choose the instance family to match the value of "Node instance type."|Node group type
+(`NodeGroupType`)|`Managed`|Choose "Unmanaged" to create an auto-scaling group without using the EKS managed node groups feature.|Node group operating system
+(`NodeGroupOS`)|`Amazon Linux 2`|The operating system to be used for the node instances. Note that if you choose "Windows" an additional Amazon Linux node group is also created.
 |===
 .Snyk monitor [APN security partner]
 [width="100%",cols="16%,11%,73%",options="header",]
@@ -76,7 +68,7 @@
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
 |Parameter label (name) |Default value|Description|ALB ingress controller
-(`ALBIngressController`)|`Disabled`|Choose "Enabled" to deploy the ALB ingress controller.|Cluster autoscaler
+(`ALBIngressController`)|`Enabled`|Choose "Enabled" to deploy the ALB ingress controller.|Cluster autoscaler
 (`ClusterAutoScaler`)|`Disabled`|Choose "Enabled" to enable Kubernetes cluster autoscaler.|EFS storage class
 (`EfsStorageClass`)|`Disabled`|Choose "Enabled" to enable EFS storage class.|Monitoring stack
 (`MonitoringStack`)|`None`|Enable monitoring stack with "Prometheus+Grafana."

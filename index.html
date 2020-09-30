@@ -778,6 +778,9 @@ a img {
 .preview_mode .tableblock {
   background:#ffffb3;
 }
+
+.footer-text{color:rgba(255,255,255,.8);line-height:1.44;background:#1c222a;padding:1.25em;max-width:100%;margin-bottom:unset}
+p.footer-text a{color:#d7d8d8}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -820,7 +823,7 @@ a img {
 <ul class="sectlevel2">
 <li><a href="#_cluster_autoscaler">Cluster autoscaler</a></li>
 <li><a href="#_managed_node_group">Managed node group</a></li>
-<li><a href="#_efs_storageclass">EFS StorageClass</a></li>
+<li><a href="#_efs_storageclass">EFS <code>StorageClass</code></a></li>
 </ul>
 </li>
 <li><a href="#_faq">FAQ</a></li>
@@ -838,12 +841,12 @@ a img {
 <h2 id="_quick_start_reference_deployment" class="discrete text-left text-center">Quick Start Reference Deployment</h2>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/aws-quickstart-graphic.png" alt="QS" width="80" height="80">
+<img src="https://aws-quickstart.s3.amazonaws.com/quickstart-amazon-eks/docs/boilerplate/.images/aws-quickstart-graphic.png" alt="QS" width="80" height="80">
 </div>
 </div>
 <div class="paragraph text-center">
-<p><strong>September, 2020</strong><br>
-<em>Jay McConnell, Troy Ameigh, Andrew Gargan</em></p>
+<p><strong>October, 2020</strong><br>
+<em>Jay McConnell, Troy Ameigh, and Andrew Gargan, AWS Quick Start team</em></p>
 </div>
 <div class="admonitionblock tip text-left">
 <table>
@@ -870,7 +873,7 @@ report bugs, or submit feature ideas for this Quick Start.
 <p>This Quick Start reference deployment guide provides step-by-step instructions for deploying Amazon Elastic Kubernetes Service (Amazon EKS) clusters.</p>
 </div>
 <div class="paragraph">
-<p>This Quick Start is for users who are looking for a repeatable, customizable reference deployment for Amazon EKS using AWS CloudFormation.</p>
+<p>This Quick Start is for users who want a repeatable, customizable reference deployment for Amazon EKS using AWS CloudFormation.</p>
 </div>
 </div>
 </div>
@@ -878,13 +881,13 @@ report bugs, or submit feature ideas for this Quick Start.
 <h2 id="_amazon_eks_on_aws">Amazon EKS on AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Using Amazon EKS, you can deploy, manage, and scale containerized applications running on Kubernetes on AWS.</p>
+<p>Using Amazon EKS, you can deploy, manage, and scale containerized applications that run Kubernetes on AWS.</p>
 </div>
 <div class="paragraph">
-<p>Amazon EKS runs the Kubernetes management infrastructure for you across multiple AWS Availability Zones to eliminate a single point of failure. Amazon EKS is certified Kubernetes-conformant, so you can use existing tooling and plugins from partners and the Kubernetes community. Applications running on any standard Kubernetes environment are fully compatible and can be migrated to Amazon EKS.</p>
+<p>To eliminate a single point of failure, Amazon EKS runs the Kubernetes management infrastructure across multiple Availability Zones. Amazon EKS is certified Kubernetes-conformant, so you can use existing tools and plugins from partners and the Kubernetes community. Applications that run in a standard Kubernetes environment are fully compatible with this deployment and can be migrated to Amazon EKS.</p>
 </div>
 <div class="paragraph">
-<p>This reference deployment provides AWS CloudFormation templates to deploy the Kubernetes control plane, connect worker nodes to the cluster, and configure a bastion host for cluster admin operations. Additionally, the Quick Start deployment provides several <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html">CloudFormation registry resource types</a> that enable you to deploy and manage your Kubernetes applications using AWS CloudFormation by declaring Kubernetes manifests or Helm charts directly in AWS CloudFormation templates. This Quick Start also includes several optional add-ons from AWS Partner Network Partners and selected the open source projects, which are discussed in detail in the <a href="#_optional_add_ins">Optional add-ins</a> section.</p>
+<p>This Quick Start provides AWS CloudFormation templates that deploy the Kubernetes control plane, connect worker nodes to the cluster, and configure a bastion host for cluster administrative operations. Additionally, this deployment provides several <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html" target="_blank" rel="noopener">AWS CloudFormation registry resource types</a> that let you deploy and manage Kubernetes applications by declaring Kubernetes manifests or Helm charts. This Quick Start also includes optional add-ins from AWS Partners and open-source projects. For more information, see the <a href="#_optional_add_ins">Optional add-ins</a> section.</p>
 </div>
 </div>
 </div>
@@ -920,8 +923,7 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 <h2 id="_architecture">Architecture</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Deploying this Quick Start for a new virtual private cloud (VPC) with <strong>default parameters</strong> builds the following Amazon
-EKS environment in the AWS Cloud.</p>
+<p>Deploying this Quick Start for a new virtual private cloud (VPC) with default parameters builds the following Amazon EKS environment in the AWS Cloud.</p>
 </div>
 <div id="architecture1" class="imageblock">
 <div class="content">
@@ -938,16 +940,16 @@ EKS environment in the AWS Cloud.</p>
 <p>A highly available architecture that spans three Availability Zones.*</p>
 </li>
 <li>
-<p>A VPC configured with public and private subnets according to AWS best practices, to provide you with your own virtual network on AWS.*</p>
+<p>A VPC configured with public and private subnets, according to AWS best practices, to provide you with your own virtual network on AWS.*</p>
 </li>
 <li>
 <p>In the public subnets, managed NAT gateways to allow outbound internet access for resources in the private subnets.*</p>
 </li>
 <li>
-<p>In one public subnet, a Linux bastion host in an Auto Scaling group to allow inbound Secure Shell (SSH) access to Amazon Elastic Compute Cloud (Amazon EC2) instances in private subnets. The bastion host is also configured with the Kubernetes kubectl command line interface (CLI) for managing the Kubernetes cluster.</p>
+<p>In one public subnet, a Linux bastion host in an Auto Scaling group to allow inbound Secure Shell (SSH) access to Amazon Elastic Compute Cloud (Amazon EC2) instances in private subnets. The bastion host is also configured with the Kubernetes <code>kubectl</code> command line interface (CLI) for managing the Kubernetes cluster.</p>
 </li>
 <li>
-<p>An Amazon EKS cluster, which provides the Kubernetes control plane.</p>
+<p>An Amazon EKS cluster, which creates the Kubernetes control plane.</p>
 </li>
 <li>
 <p>In the private subnets, a group of Kubernetes nodes.</p>
@@ -974,7 +976,7 @@ deploy, and operate your infrastructure and applications on the AWS
 Cloud.</p>
 </div>
 <div class="paragraph">
-<p>This Quick Start assumes familiarity with Kubernetes concepts and usage. Sections that cover building AWS CloudFormation templates using the provided custom resources assume knowledge of authoring AWS CloudFormation templates.</p>
+<p>This Quick Start assumes familiarity with Kubernetes concepts and usage. The sections about authoring templates assume a working knowledge of AWS CloudFormation.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1049,7 +1051,7 @@ Cloud.</p>
 <div class="sect3">
 <h4 id="_iam_permissions">IAM permissions</h4>
 <div class="paragraph">
-<p>Before launching the Quick Start, you must log in to the AWS Management Console with <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html" target="_blank" rel="noopener">IAM permissions</a> for the resources and actions the templates deploy.</p>
+<p>Before launching the Quick Start, you must log in to the AWS Management Console with <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html" target="_blank" rel="noopener">IAM permissions</a> for the resources that the templates deploy.</p>
 </div>
 <div class="paragraph">
 <p>The <em>AdministratorAccess</em> managed policy within IAM provides sufficient permissions, although your organization may choose to use a custom policy with more restrictions.</p>
@@ -1058,7 +1060,7 @@ Cloud.</p>
 <div class="sect3">
 <h4 id="_deployment_options">Deployment options</h4>
 <div class="paragraph">
-<p>This Quick Start provides several deployment options:</p>
+<p>This Quick Start provides three deployment options:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1069,12 +1071,21 @@ Cloud.</p>
 <p><strong>Deploy Amazon EKS into an existing VPC</strong>. This option provisions Amazon EKS in your existing AWS infrastructure.</p>
 </li>
 <li>
-<p><strong>Enable an existing EKS cluster for CloudFormation based deployments</strong>. This option will deploy the infrastructure needed to use CloudFormation to manage kubernetes resources in an existing cluster.</p>
+<p><strong>Enable an existing EKS cluster for AWS CloudFormation–based deployments</strong>. This option deploys the necessary infrastructure for AWS CloudFormation to manage Kubernetes resources for an existing cluster.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Many advanced or optional configuration items must be configured by launching the <a href="http://fix/me">advanced configuration stack</a> before launching one of the above deployment options.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Many advanced or optional configuration items must be configured by launching the <a href="https://fwd.aws/zwGDB" target="_blank" rel="noopener">advanced configuration stack</a> before launching one of the deployment options.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The Quick Start provides separate templates for these options. It also lets you configure CIDR blocks, instance types, and Amazon EKS settings, as discussed later in this guide.</p>
@@ -1091,16 +1102,18 @@ Cloud.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sign in to your AWS account at <a href="https://aws.amazon.com" class="bare">https://aws.amazon.com</a> with an IAM user role that has the necessary permissions. For details, see <a href="#planning-the-deployment">Planning the deployment</a> earlier in this guide.</p>
+<p>Sign in to your AWS account at <a href="https://aws.amazon.com" class="bare">https://aws.amazon.com</a> with an IAM user role that has the necessary permissions. For more information, see
+<a href="#planning-the-deployment">Planning the deployment</a>, earlier in this guide.</p>
 </li>
 <li>
-<p>Make sure that your AWS account is configured correctly, as discussed in the <a href="#technical-requirements">Technical requirements</a> section.</p>
+<p>Ensure that your AWS account is configured correctly, as discussed in the
+<a href="#technical-requirements">Technical requirements</a> section.</p>
 </li>
 <li>
 <p>Use the Region selector in the navigation bar to choose the AWS Region where you want to deploy Amazon EKS.</p>
 </li>
 <li>
-<p>Select the key pair that you created earlier. In the navigation pane of the <a href="https://console.aws.amazon.com/ec2/">Amazon EC2 console</a>, choose <strong>Key Pairs</strong>, and then choose your key pair from the list.</p>
+<p>Select the key pair that you created earlier. In the navigation pane of the <a href="https://console.aws.amazon.com/ec2/" target="_blank" rel="noopener">Amazon EC2 console</a>, choose <strong>Key Pairs</strong>, and then choose your key pair from the list.</p>
 </li>
 </ol>
 </div>
@@ -1110,10 +1123,10 @@ Cloud.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Optionally, if you would like to configure any advanced parameters, launch the <a href="https://fwd.aws/6dEQ7">advanced configuration template</a>.</p>
+<p>Optionally, if you want to configure advanced parameters, launch the <a href="https://fwd.aws/6dEQ7" target="_blank" rel="noopener">advanced configuration template</a>.</p>
 </li>
 <li>
-<p>Choose one of the following options to launch the AWS CloudFormation template into your AWS account. For help choosing an option, see deployment options earlier in this guide.</p>
+<p>Choose one of the following options to launch the AWS CloudFormation template into your AWS account. For help with choosing an option, see <a href="#_deployment_options">Deployment options</a>, earlier in this guide.</p>
 </li>
 </ol>
 </div>
@@ -1123,18 +1136,18 @@ Cloud.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/6dEQ7">Deploy Amazon EKS into a new VPC</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/6dEQ7" target="_blank" rel="noopener">Deploy Amazon EKS into a new VPC</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/e37MA">Deploy Amazon EKS into an existing VPC</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/e37MA" target="_blank" rel="noopener">Deploy Amazon EKS into an existing VPC</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/FIXME">Enable EKS based Quick Starts on an existing EKS cluster</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/VBeX6" target="_blank" rel="noopener">Enable EKS based Quick Starts on an existing EKS cluster</a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Deployment can take between 25 and 90 minutes to complete depending on the deployment option and parameter values chosen.</p>
+<p>Deployment can take between 25 and 90 minutes to complete, depending on the chosen deployment option and parameter values.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1143,7 +1156,7 @@ Cloud.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you’re deploying Amazon EKS into an existing VPC, make sure that your VPC has private subnets in different Availability Zones for the workload instances. These subnets require egress internet access using a NAT Gateway or an HTTP proxy. You will also need to tag each private subnet with the tag kubernetes.io/role/internal-elb=true and each public subnet with the tag kubernetes.io/role/elb=true if you want to use the Kubernetes integration with Elastic Load Balancing.
+If you deploy Amazon EKS into an existing VPC, ensure that your VPC has private subnets in different Availability Zones for the workload instances. The subnets require egress internet access using a NAT gateway or an HTTP proxy. If you want to use the Kubernetes integration with Elastic Load Balancing, you must tag each private subnet with <code>kubernetes.io/role/internal-elb=true</code> and each public subnet with <code>kubernetes.io/role/elb=true</code>.
 </td>
 </tr>
 </table>
@@ -1151,7 +1164,7 @@ If you’re deploying Amazon EKS into an existing VPC, make sure that your VPC h
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
-<p>Check the Region that’s displayed in the upper-right corner of the navigation bar, and change it if necessary. This is where the network infrastructure where Amazon EKS will be built. The template is launched in the US East (Ohio) Region by default.</p>
+<p>Check the Region that’s displayed in the upper-right corner of the navigation bar, and change it if necessary. This is where the network infrastructure for Amazon EKS is built. The template launches in the US East (Ohio) Region by default.</p>
 </li>
 </ol>
 </div>
@@ -1162,7 +1175,7 @@ If you’re deploying Amazon EKS into an existing VPC, make sure that your VPC h
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Certain services may not be supported in all AWS Regions. For a current list of supported Regions, see the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">endpoints and quotas webpage</a>.
+Some services are not supported in all AWS Regions. For a current list of supported Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/eks.html" target="_blank" rel="noopener">Amazon Elastic Kubernetes Service endpoints and quotas</a>.
 </td>
 </tr>
 </table>
@@ -1170,10 +1183,10 @@ Certain services may not be supported in all AWS Regions. For a current list of 
 <div class="olist arabic">
 <ol class="arabic" start="4">
 <li>
-<p>On the <strong>Select Template</strong> page, keep the default setting for the template URL, and then choose <strong>Next</strong>.</p>
+<p>On the <strong>Select template</strong> page, keep the default setting for the template URL, and then choose <strong>Next</strong>.</p>
 </li>
 <li>
-<p>On the <strong>Specify Details</strong> page, change the stack name if needed. Review the parameters for the template. Provide values for the parameters that require input. For all other parameters, review the default settings, and customize them as necessary.</p>
+<p>On the <strong>Specify stack details</strong> page, change the stack name if needed. Review the parameters for the template, and provide values for any parameters that require input. For all other parameters, review the default settings, and customize them as necessary.</p>
 </li>
 </ol>
 </div>
@@ -1184,7 +1197,7 @@ Certain services may not be supported in all AWS Regions. For a current list of 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you have already deployed the EKS Quick Start in your account before, ensure that <code>Per account shared resources</code> parameter has been set to <code>No</code> and if you have deployed in the same Region also set <code>Per region shared resources</code> to <code>No</code>.
+If Amazon EKS is already deployed in your account, ensure that the <code>Per account shared resources</code> parameter is set to <strong>No</strong>. If you deploy a new Amazon EKS instance in the same Region as a previously deployed instance, set <code>Per region shared resources</code> to <strong>No</strong>.
 </td>
 </tr>
 </table>
@@ -1196,7 +1209,7 @@ If you have already deployed the EKS Quick Start in your account before, ensure 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you have created an advanced configuration stack that you would like to use, ensure that you set the value for <code>Config set name</code> to match the value you used when you launched the advanced configuration stack.
+If you created and intend to use an advanced configuration stack, ensure that you set the value for <code>Config set name</code> to match the value you used when you launched the advanced configuration stack.
 </td>
 </tr>
 </table>
@@ -1208,14 +1221,14 @@ If you have created an advanced configuration stack that you would like to use, 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Unless you are customizing the Quick Start templates for your own deployment projects, we recommend that you keep the default settings for the parameters labeled <code>Quick Start S3 bucket name</code>, <code>Quick Start S3 bucket
+Unless you are customizing this Quick Start&#8217;s templates for your own deployment projects, we recommend that you keep the default settings for the parameters labeled <code>Quick Start S3 bucket name</code>, <code>Quick Start S3 bucket
 Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parameter settings automatically updates code references to point to a new Quick Start location. For more information, see the <a href="https://aws-quickstart.github.io/option1.html" target="_blank" rel="noopener">AWS Quick Start Contributor’s Guide</a>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In the following tables, parameters are listed by category and described separately for the deployment options. When you finish reviewing and customizing the parameters, choose <strong>Next</strong>.</p>
+<p>In the following tables, parameters are listed by category and described separately for each deployment option. When you finish reviewing and customizing the parameters, choose <strong>Next</strong>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1430,12 +1443,6 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group
-(<code>ManagedNodeGroup</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "no" if you want to create the default node group as unmanaged.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Instance type
 (<code>NodeInstanceType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.medium</code></p></td>
@@ -1453,57 +1460,28 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of Amazon EKS node instances. The default is three nodes.</p></td>
 </tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Amazon EKS Windows configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
 <tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allow for creation of Windows node group
-(<code>WindowsSupport</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "Enabled" to create a Windows node group.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node group OS
+(<code>NodeGroupOS</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amazon Linux 2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The operating system to be used for the node instances. Note that if you choose "Windows" an additional Amazon Linux node group is also created.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node instance type
-(<code>WindowsNodeInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.large</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node group type
+(<code>NodeGroupType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Managed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "Unmanaged" to create an auto-scaling group without using the EKS managed node groups feature.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of Windows nodes
-(<code>WindowsNumberOfNodes</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of Amazon EKS Windows node instances. The default is one for each of the three Availability Zones.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node group name
-(<code>WindowsNodeGroupName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Default-Windows</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name for EKS Windows node group.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node volume size
-(<code>WindowsNodeVolumeSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>50</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The size for the Windows node&#8217;s root EBS volumes (should be at least 50 gb).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node instance family
+(<code>NodeInstanceFamily</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Standard</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose the instance family to match the value of "Node instance type."</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Snyk monitor [APN security partner]</caption>
+<caption class="title">Table 6. Snyk monitor [APN security partner]</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1532,7 +1510,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. New Relic infrastructure [APN monitoring partner]</caption>
+<caption class="title">Table 7. New Relic infrastructure [APN monitoring partner]</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1561,7 +1539,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. Kubernetes add-ins</caption>
+<caption class="title">Table 8. Kubernetes add-ins</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1578,8 +1556,8 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ALB ingress controller
 (<code>ALBIngressController</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "Enabled" to deploy the ALB ingress controller.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "Disabled" to skip deploying the ALB ingress controller.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cluster autoscaler
@@ -1602,7 +1580,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. AWS Quick Start configuration</caption>
+<caption class="title">Table 9. AWS Quick Start configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1646,7 +1624,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <div class="sect2">
 <h3 id="_launch_into_an_existing_vpc">Launch into an existing VPC</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. Basic configuration</caption>
+<caption class="title">Table 10. Basic configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1735,7 +1713,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. Network configuration</caption>
+<caption class="title">Table 11. Network configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1758,7 +1736,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. Amazon EC2 configuration</caption>
+<caption class="title">Table 12. Amazon EC2 configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1781,7 +1759,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. Amazon EKS configuration</caption>
+<caption class="title">Table 13. Amazon EKS configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1834,7 +1812,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. Default EKS node group configuration</caption>
+<caption class="title">Table 14. Default EKS node group configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1848,12 +1826,6 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group
-(<code>ManagedNodeGroup</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "no" if you want to create the default node group as unmanaged.</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Instance type
 (<code>NodeInstanceType</code>)</p></td>
@@ -1872,57 +1844,28 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of Amazon EKS node instances. The default is three nodes.</p></td>
 </tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Amazon EKS Windows configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
 <tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allow for creation of Windows node group
-(<code>WindowsSupport</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "Enabled" to create a Windows node group.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance family
+(<code>NodeInstanceFamily</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Standard</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose the instance family to match the value of "Node instance type."</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node instance type
-(<code>WindowsNodeInstanceType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.large</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node group type
+(<code>NodeGroupType</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Managed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose "Unmanaged" to create an auto-scaling group without using the EKS managed node groups feature.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of Windows nodes
-(<code>WindowsNumberOfNodes</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of Amazon EKS Windows node instances. The default is one for each of the three Availability Zones.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node group name
-(<code>WindowsNodeGroupName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Default-Windows</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name for EKS Windows node group.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows node volume size
-(<code>WindowsNodeVolumeSize</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>50</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The size for the Windows node&#8217;s root EBS volumes (should be at least 50 gb).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node group operating system
+(<code>NodeGroupOS</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amazon Linux 2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The operating system to be used for the node instances. Note that if you choose "Windows" an additional Amazon Linux node group is also created.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. Snyk monitor [APN security partner]</caption>
+<caption class="title">Table 15. Snyk monitor [APN security partner]</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1951,7 +1894,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. New Relic infrastructure [APN monitoring partner]</caption>
+<caption class="title">Table 16. New Relic infrastructure [APN monitoring partner]</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1980,7 +1923,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. Kubernetes add-ins</caption>
+<caption class="title">Table 17. Kubernetes add-ins</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1997,7 +1940,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ALB ingress controller
 (<code>ALBIngressController</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enabled</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Choose "Enabled" to deploy the ALB ingress controller.</p></td>
 </tr>
 <tr>
@@ -2021,7 +1964,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 20. AWS Quick Start configuration</caption>
+<caption class="title">Table 18. AWS Quick Start configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2059,7 +2002,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <div class="sect2">
 <h3 id="_prepare_an_existing_eks_cluster">Prepare an existing EKS cluster</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 21. EKS cluster details</caption>
+<caption class="title">Table 19. EKS cluster details</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2118,7 +2061,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 22. AWS Quick Start configuration</caption>
+<caption class="title">Table 20. AWS Quick Start configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2156,7 +2099,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <div class="sect2">
 <h3 id="_configure_advanced_options">Configure advanced options</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 23. Quick Start Configuration</caption>
+<caption class="title">Table 21. Quick Start Configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2179,7 +2122,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 24. EKS cluster configuration</caption>
+<caption class="title">Table 22. EKS cluster configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2238,7 +2181,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 25. Default EKS node group configuration</caption>
+<caption class="title">Table 23. Default EKS node group configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2259,28 +2202,10 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name of the EKS node group.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Operating system
-(<code>NodeAMIOS</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amazon-Linux-HVM</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose the operating system to be used for the default node group.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Volume size
 (<code>NodeVolumeSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>20</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The size for the node&#8217;s root EBS volumes.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group AMI type
-(<code>ManagedNodeGroupAMIType</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AL2_x86_64</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only applies if you chose "yes" for "Managed node group." Select the AMI type for your managed node group. GPU instance types should use the "AL2_x86_64_GPU" AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Managed node group label
-(<code>MangedNodeGroupLabel</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Blank string</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) Add a custom name label to the managed node group nodes. If you dont do this then a default one will be added for you.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Custom AMI ID
@@ -2289,15 +2214,63 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) If an AMI id is specified here it will be used instead of the ami determined from the OS/Region.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bootstrap arguments
-(<code>BootstrapArguments</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Labels
+(<code>Labels</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Blank string</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in <a href="https://github.com/awslabs/amazon-eks-ami/" class="bare">https://github.com/awslabs/amazon-eks-ami/</a> .</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) Comma separated list of &lt;key&gt;=&lt;value&gt; pairs representing node labels to assign to the node group. Ignored if "Custom launch template" is provided.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Taints
+(<code>Taints</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Blank string</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) Comma separated list of &lt;key&gt;=&lt;value&gt;:&lt;effect&gt; representing node taints to assign to the node group. Ignored if "Custom launch template" is provided.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Launch template ID
+(<code>LaunchTemplateId</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Blank string</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) ID of an existing launch template to use when creating the node group.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Launch template version
+(<code>LaunchTemplateVersion</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Blank string</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be specified if "Launch template ID" is provided. Can not be "$Latest" or "$Default". This value sets the launch template version for the node group to use.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security group ID
+(<code>NodeSecurityGroupId</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Blank string</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) Provide the id of a Security Group to use for this node group. If not specified, one will be created.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type 2
+(<code>NodeInstanceType2</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Blank string</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) Only applies if "Node group type" is set to "Unmanaged." 2nd type of EC2 instance for the node instances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type 3
+(<code>NodeInstanceType3</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Blank string</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) Only applies if "Node group type" is set to "Unmanaged." 3rd type of EC2 instance for the node instances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type 4
+(<code>NodeInstanceType4</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Blank string</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) Only applies if "Node group type" is set to "Unmanaged." 4th type of EC2 instance for the node instances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">On demand percentage
+(<code>OnDemandPercentage</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>100</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only applies if "Node group type" is set to "Unmanaged." Set the percentage of on demand instances and spot instances. With the default of 100, the percentages are 100% for on demand instances and 0% for spot instances.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 26. Bastion configuration</caption>
+<caption class="title">Table 24. Bastion configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2362,7 +2335,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 27. EFS storage class configuration</caption>
+<caption class="title">Table 25. EFS storage class configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2399,7 +2372,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <div class="olist arabic">
 <ol class="arabic" start="6">
 <li>
-<p>On the options page, you can <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html" target="_blank" rel="noopener">specify tags</a> (key-value pairs) for resources in your stack and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.html" target="_blank" rel="noopener">set advanced options</a>. When you’re done, choose <strong>Next</strong>.</p>
+<p>On the <strong>Configure stack options</strong> page, you can <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html" target="_blank" rel="noopener">specify tags</a> (key-value pairs) for resources in your stack and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.html" target="_blank" rel="noopener">set advanced options</a>. When you’re done, choose <strong>Next</strong>.</p>
 </li>
 <li>
 <p>On the <strong>Review</strong> page, review and confirm the template settings. Under <strong>Capabilities</strong>, select the two check boxes to acknowledge that the template creates IAM resources and might require the ability to automatically expand macros.</p>
@@ -2434,7 +2407,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-These steps must be executed from a network that has access to the Kubernetes API, as configured by the <strong>EKS public access endpoint</strong> and <strong>Kubernetes API public access CIDRs</strong> parameters. Instructions for installing kubectl are available in the <a href="https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html">Amazon EKS documentation</a>. If you enabled the optional bastion host, you can connect to the bastion host by using SSH with the key pair that you specified during deployment and the IP address in that is displayed on the <strong>Outputs</strong> tab of the AWS CloudFormation stack. The bastion host already has kubectl installed and configured to be able to connect to the cluster. To test the CLI’s ability to connect to the cluster, run the following command.
+These steps must be executed from a network that has access to the Kubernetes API, as configured by the <strong>EKS public access endpoint</strong> and <strong>Kubernetes API public access CIDR</strong> parameters. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html" target="_blank" rel="noopener">Installing kubectl</a>. If you enabled the optional bastion host, you can connect to it by using SSH. Use the key pair that you specified during deployment and the IP address from the <strong>Outputs</strong> tab of the AWS CloudFormation stack. The bastion host already has <code>kubectl</code> installed and configured so that it connects to the cluster. To test the CLI, connect to the cluster, and run the following command.
 </td>
 </tr>
 </table>
@@ -2445,7 +2418,7 @@ These steps must be executed from a network that has access to the Kubernetes AP
 </div>
 </div>
 <div class="paragraph">
-<p>Confirm that the output includes the Server Version, which indicates a successful connection the Kubernetes control plane:</p>
+<p>Confirm that the output includes the server version, which indicates a successful connection to the Kubernetes control plane.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2457,7 +2430,7 @@ Server Version: version.Info\{Major:"1", Minor:"11+", GitVersion:" &lt;version n
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
-<p>Now check that the nodes have successfully connected to the cluster by running the get nodes command.</p>
+<p>Check for a successful connection between the nodes and cluster by running the <code>get nodes</code> command.</p>
 </li>
 </ol>
 </div>
@@ -2478,21 +2451,21 @@ ip-10-0-35-29.us-west-2.compute.internal Ready &lt;none&gt; 10m &lt;version numb
 <div class="sect2">
 <h3 id="_use_aws_cloudformation_for_ongoing_management">Use AWS CloudFormation for ongoing management</h3>
 <div class="paragraph">
-<p>We recommend using AWS CloudFormation to manage updating and deleting the resources that are created by this Quick Start.
-Using the Amazon EC2 console, CLI, or API to change or delete created by this Quick Start can cause future AWS
+<p>We recommend using AWS CloudFormation for managing updates and resources that are created by this Quick Start.
+Using the Amazon EC2 console, CLI, or API to change or delete resources can cause future AWS
 CloudFormation operations on the stack to behave unexpectedly.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_monitor_additional_resource_usage">Monitor additional resource usage</h3>
 <div class="paragraph">
-<p>This deployment enables users of the Amazon EKS cluster to be able to create ELB load balancers and Amazon EBS volumes
-as part of their Kubernetes applications. As these carry additional costs, we recommend that you grant users of the
-Amazon EKS cluster only the permissions they require via <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Kubernetes Role Based Access Control (RBAC)</a>
-and that you monitor the resource usage by using the Kubernetes CLI or the Kubernetes API to describe the persistent
-volume claims (PVC) and LoadBalancer resources across all namespaces. To disable this functionality, you can update the
-ControlPlaneRole IAM role created in the IAM child stack to deny the Kubernetes control plane access to specific AWS
-APIs like ec2:CreateVolume or elb:CreateLoadBalancer.</p>
+<p>This deployment enables users of the Amazon EKS cluster to create elastic load balancers and Amazon EBS volumes
+as part of their Kubernetes applications. Because these carry additional costs, we recommend that you grant users of the
+Amazon EKS cluster the minumum permissions required according to <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/" target="_blank" rel="noopener">Kubernetes Role Based Access Control (RBAC)</a>
+and that you monitor resource usage by using the Kubernetes CLI or API to describe persistent
+volume claims (PVC) and <code>LoadBalancer</code> resources across all namespaces. To disable this functionality, update the
+<code>ControlPlaneRole</code> IAM role in the child stack to restrict access to the Kubernetes control plane for specific AWS
+APIs, such as <code>ec2:CreateVolume</code> and <code>elb:CreateLoadBalancer</code>.</p>
 </div>
 </div>
 </div>
@@ -2501,10 +2474,8 @@ APIs like ec2:CreateVolume or elb:CreateLoadBalancer.</p>
 <h2 id="_security">Security</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster (through the AWS IAM Authenticator for
-Kubernetes), but it still relies on native Kubernetes RBAC for authorization. This means that IAM is used only for
-authentication of valid IAM entities. All permissions for interacting with your Amazon EKS cluster’s Kubernetes API are
-managed through the native Kubernetes RBAC system. We recommend that you grant least-privilege access via Kubernetes RBAC.</p>
+<p>Amazon EKS uses AWS IAM to authenticate your Kubernetes cluster, but it still relies on native Kubernetes RBAC. This means that IAM is used only for valid entities. All permissions for interacting with your Amazon EKS cluster’s Kubernetes API are
+managed by the native Kubernetes RBAC system. We recommend that you grant least-privilege access via Kubernetes RBAC.</p>
 </div>
 </div>
 </div>
@@ -2513,9 +2484,9 @@ managed through the native Kubernetes RBAC system. We recommend that you grant l
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Quick Start creates an IAM role that is used to create the Kubernetes control plane. The AWS CloudFormation custom
-resources and the Linux bastion host use the IAM role to provide access to the Kubernetes API. Additional IAM users or
-roles can be added as Kubernetes admin users (<strong>system:master</strong> kubernetes cluster role) by entering an ARN into the
-<strong>Additional EKS admin ARN</strong> parameter when you launch this Quick Start. To add users after the stack has launched, follow the steps in the <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html">Amazon EKS documentation</a>.</p>
+resources and Linux bastion host use the IAM role to provide access to the Kubernetes API. Additional IAM users or
+roles can be added as Kubernetes administrators (<strong>system:master</strong> kubernetes cluster role) by entering an ARN into the
+<strong>Additional EKS admin ARN</strong> parameter when you launch this Quick Start. To add users after the stack launches, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html" target="_blank" rel="noopener">Managing users or IAM roles for your cluster</a>.</p>
 </div>
 </div>
 </div>
@@ -2523,9 +2494,8 @@ roles can be added as Kubernetes admin users (<strong>system:master</strong> kub
 <h2 id="_managing_kubernetes_resources_using_aws_cloudformation">Managing Kubernetes resources using AWS CloudFormation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Quick Start includes CloudFormation registry resource types to enable authoring, creating, and
-managing Kubernetes-based applications using AWS CloudFormation. For example usage, see the
-<a href="https://github.com/aws-quickstart/quickstart-aws-eks/blob/master/templates/example-workload.template.yaml">example-workload template</a>.</p>
+<p>This Quick Start includes AWS CloudFormation registry types that enable authoring, creating, and
+managing Kubernetes-based applications. For an example, see <a href="https://github.com/aws-quickstart/quickstart-aws-eks/blob/master/templates/example-workload.template.yaml" target="_blank" rel="noopener">example-workload template</a>.</p>
 </div>
 </div>
 </div>
@@ -2533,36 +2503,32 @@ managing Kubernetes-based applications using AWS CloudFormation. For example usa
 <h2 id="_optional_add_ins">Optional add-ins</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Quick Start contains optional configurations and add-ins for Kubernetes that enhance the functionality and reduce
-the post-deployment configuration tasks for customers who require these add-ins.</p>
+<p>This Quick Start contains optional configurations and add-ins for Kubernetes that enhance the functionality and reduce post-deployment configuration tasks for customers.</p>
 </div>
 <div class="sect2">
 <h3 id="_cluster_autoscaler">Cluster autoscaler</h3>
 <div class="paragraph">
-<p><a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster autoscaler</a> automatically adjusts the
-size of the Kubernetes cluster when there are insufficient resources or nodes that have been underutilized for an
-extended period of time.</p>
+<p><a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler" target="_blank" rel="noopener">Cluster autoscaler</a> automatically adjusts the
+size of the Kubernetes cluster when there are insufficient resources or nodes.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_managed_node_group">Managed node group</h3>
 <div class="paragraph">
-<p>With Amazon EKS–managed node groups, the provisioning and lifecycle management of the nodes is automated. All nodes get
-provisioned as part of an Auto Scaling group, which means you cannot use the “Cluster autoscaler” option of the
-QuickStart. Nodes are created using the latest Amazon EKS–optimized Amazon Linux 2 AMI.</p>
+<p>With Amazon EKS–managed node groups, provisioning and lifecycle management of the nodes is automated. All nodes get
+provisioned as part of an Auto Scaling group, which means you cannot use the <strong>Cluster autoscaler</strong> option. Nodes are created using the latest Amazon EKS–optimized Amazon Linux 2 AMI.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_efs_storageclass">EFS StorageClass</h3>
+<h3 id="_efs_storageclass">EFS <code>StorageClass</code></h3>
 <div class="paragraph">
-<p>An optional EFSStorageClass volume provides redundant persistent storage that is not tied to an individual Availability
-Zone and is well suited for highly available stateful applications that are required to survive an Availability Zone
-outage. The Amazon EFS volume is made available to Kubernetes pods by the
-<a href="https://github.com/helm/charts/tree/master/stable/efs-provisioner">EFS provisioner project</a>.</p>
+<p>An optional <code>EFSStorageClass</code> volume provides redundant, persistent storage that is untethered to individual Availability
+Zones, so it is well suited for high availability, stateful applications that are required to survive an outage. The Amazon EFS volume is available to Kubernetes pods through the
+<a href="https://github.com/helm/charts/tree/master/stable/efs-provisioner" target="_blank" rel="noopener">EFS provisioner project</a>.</p>
 </div>
 <div class="paragraph">
 <p>There are several configuration options available to tune the performance and throughput of the underlying EFS volume.
-For details, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html">Amazon EFS documentation</a>.</p>
+For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html" target="_blank" rel="noopener">Amazon EFS Performance</a>.</p>
 </div>
 </div>
 </div>
@@ -2574,25 +2540,34 @@ For details, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/performa
 <p><strong>Q.</strong> I encountered a <strong>CREATE_FAILED</strong> error when I launched the Quick Start.</p>
 </div>
 <div class="paragraph">
-<p><strong>A.</strong> If AWS CloudFormation fails to create the stack, we recommend that you relaunch the template with <strong>Rollback on failure</strong> set to <strong>No</strong>. (This setting is under <strong>Advanced</strong> in the AWS CloudFormation console, <strong>Options</strong> page.) With this setting, the stack’s state will be retained and the instances will be left running, so you can troubleshoot the issue.</p>
+<p><strong>A.</strong> If AWS CloudFormation fails to create the stack, we recommend that you relaunch the template with <strong>Rollback on failure</strong> set to <strong>Disabled</strong>. (This setting is under <strong>Advanced</strong> in the AWS CloudFormation console, <strong>Options</strong> page.) With this setting, the stack’s state is retained, and instances remain running so you can troubleshoot the issue.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, you continue to incur AWS charges for the stack. Ensure that you delete the stack when you finish troubleshooting.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>Important:</strong> When you set <strong>Rollback on failure</strong> to <strong>No</strong>, you will continue to incur AWS charges for this stack. Please make sure to delete the stack when you finish troubleshooting.</p>
-</div>
-<div class="paragraph">
-<p>For additional information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html">Troubleshooting AWS CloudFormation</a> on the AWS website.</p>
+<p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html" target="_blank" rel="noopener">Troubleshooting AWS CloudFormation</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Q.</strong> A resource type starting with <strong>AWSQS::</strong> failed on stack create, update, or deletion.</p>
 </div>
 <div class="paragraph">
-<p><strong>A.</strong> These resources are CloudFormation registry resource types created by the Quick Start. Their logs are stored in Amazon CloudWatch Logs with the log group prefix of <strong>/cloudformation/registry/awsqs-</strong>.</p>
+<p><strong>A.</strong> These resources are AWS CloudFormation registry resource types created by the Quick Start. Logs for it are stored in Amazon CloudWatch Logs with a group prefix of <strong>/cloudformation/registry/awsqs-</strong>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Q.</strong> I encountered a size limitation error when I deployed the AWS CloudFormation templates.</p>
 </div>
 <div class="paragraph">
-<p><strong>A.</strong> We recommend that you launch the Quick Start templates from the links in this guide or from another S3 bucket. If you deploy the templates from a local copy on your computer or from a non-S3 location, you might encounter template size limitations when you create the stack. For more information about AWS CloudFormation limits, see the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">AWS documentation</a>.</p>
+<p><strong>A.</strong> We recommend that you launch the Quick Start templates from the links in this guide or from another S3 bucket. If you deploy the templates from a local copy on your computer or from a non-Amazon S3 location, you might encounter template size limitations when you create the stack. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html" target="_blank" rel="noopener">AWS CloudFormation quotas</a>.</p>
 </div>
 </div>
 </div>
@@ -2621,9 +2596,6 @@ the templates and scripts for this Quick Start, to post your comments,
 and to share your customizations with others.</p>
 </div>
 <hr>
-<div class="paragraph">
-<p>© 2020, Amazon Web Services Inc., or its affiliates, and {partner-company-name}. All rights reserved.</p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -2638,10 +2610,10 @@ and to share your customizations with others.</p>
 </div>
 </div>
 </div>
-<div id="footer">
-<div id="footer-text">
-Last updated 2020-09-09 00:28:28 UTC
-</div>
-</div>
+<p class="footer-text">
+<!-- We can use document attributes: -->
+<!-- Generated with Asciidoctor v2.0.10. -->
+<a href="https://aws.amazon.com/privacy/">Privacy</a> | <a href="https://aws.amazon.com/terms/">Site terms</a> | &copy; 2020, Amazon Web Services, Inc. or its affiliates and {partner-company-name}. All rights reserved.
+</p>
 </body>
 </html>

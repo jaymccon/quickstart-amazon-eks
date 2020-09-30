@@ -21,13 +21,18 @@
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
 |Parameter label (name) |Default value|Description|Name
-(`NodeGroupName`)|`Default`|Name of the EKS node group.|Operating system
-(`NodeAMIOS`)|`Amazon-Linux-HVM`|Choose the operating system to be used for the default node group.|Volume size
-(`NodeVolumeSize`)|`20`|The size for the node's root EBS volumes.|Managed node group AMI type
-(`ManagedNodeGroupAMIType`)|`AL2_x86_64`|Only applies if you chose "yes" for "Managed node group." Select the AMI type for your managed node group. GPU instance types should use the "AL2_x86_64_GPU" AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support.|Managed node group label
-(`MangedNodeGroupLabel`)|`**__Blank string__**`|(Optional) Add a custom name label to the managed node group nodes. If you dont do this then a default one will be added for you.|Custom AMI ID
-(`CustomAmiId`)|`**__Blank string__**`|(Optional) If an AMI id is specified here it will be used instead of the ami determined from the OS/Region.|Bootstrap arguments
-(`BootstrapArguments`)|`**__Blank string__**`|(Optional) Bootstrap arguments to pass to the EKS node bootstrap script, available arguments are listed in https://github.com/awslabs/amazon-eks-ami/ .
+(`NodeGroupName`)|`Default`|Name of the EKS node group.|Volume size
+(`NodeVolumeSize`)|`20`|The size for the node's root EBS volumes.|Custom AMI ID
+(`CustomAmiId`)|`**__Blank string__**`|(Optional) If an AMI id is specified here it will be used instead of the ami determined from the OS/Region.|Labels
+(`Labels`)|`**__Blank string__**`|(Optional) Comma separated list of <key>=<value> pairs representing node labels to assign to the node group. Ignored if "Custom launch template" is provided.|Taints
+(`Taints`)|`**__Blank string__**`|(Optional) Comma separated list of <key>=<value>:<effect> representing node taints to assign to the node group. Ignored if "Custom launch template" is provided.|Launch template ID
+(`LaunchTemplateId`)|`**__Blank string__**`|(Optional) ID of an existing launch template to use when creating the node group.|Launch template version
+(`LaunchTemplateVersion`)|`**__Blank string__**`|Must be specified if "Launch template ID" is provided. Can not be "$Latest" or "$Default". This value sets the launch template version for the node group to use.|Security group ID
+(`NodeSecurityGroupId`)|`**__Blank string__**`|(Optional) Provide the id of a Security Group to use for this node group. If not specified, one will be created.|Instance type 2
+(`NodeInstanceType2`)|`**__Blank string__**`|(Optional) Only applies if "Node group type" is set to "Unmanaged." 2nd type of EC2 instance for the node instances.|Instance type 3
+(`NodeInstanceType3`)|`**__Blank string__**`|(Optional) Only applies if "Node group type" is set to "Unmanaged." 3rd type of EC2 instance for the node instances.|Instance type 4
+(`NodeInstanceType4`)|`**__Blank string__**`|(Optional) Only applies if "Node group type" is set to "Unmanaged." 4th type of EC2 instance for the node instances.|On demand percentage
+(`OnDemandPercentage`)|`100`|Only applies if "Node group type" is set to "Unmanaged." Set the percentage of on demand instances and spot instances. With the default of 100, the percentages are 100% for on demand instances and 0% for spot instances.
 |===
 .Bastion configuration
 [width="100%",cols="16%,11%,73%",options="header",]
